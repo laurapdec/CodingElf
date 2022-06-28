@@ -6,3 +6,4 @@ export {default as Footer} from './Footer';
 export {default as Layout} from './Layout';
 export {default as ElfCard} from './ElfCard';
 export {default as Post} from './Post';
+export {default as CompanyCard} from './CompanyCard';

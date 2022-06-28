@@ -1,7 +1,10 @@
 import React from "react";
 import Link from "next/link";
 
-const Tag = ({ text, slug }) => {
+const Tag = ({ tag }) => {
+  const slug = tag.slug;
+  const text = tag.title;
+
   return (
     <div className="cursor-pointer inline-block w-auto m-1 hover:opacity-50 ">
       <Link key={slug} href={`/category/${slug}`}>

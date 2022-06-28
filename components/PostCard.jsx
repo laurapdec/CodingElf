@@ -1,9 +1,9 @@
 import React from "react";
 import moment from "moment";
 import Link from "next/link";
+import { Tag } from "../lib";
 
 const PostCard = ({ post, key }) => {
-
   return (
     <div className="bg-[#fffae2] shadow-lg rounded-lg p-0 lg: p-8 pb-12 mb-8">
       <div className="relative overflow-hidden shadow-md pb-80 mb-6">
@@ -16,8 +16,8 @@ const PostCard = ({ post, key }) => {
       <h1 className="transition duration-300 text-center text-gray-800 mb-8 cursor-pointer hover:text-[#d0877a] text-3xl font-semibold">
         <Link href={`/post/${post.slug}`}>{post.title}</Link>
       </h1>
-      <div className="block lg:flex text-center items-center justify-center mb-8 w-full">
-        <div className="flex items-center justify-center mb-4 lg:w-auto mr-8">
+      <div className="block lg:flex md:flex text-center items-center justify-center mb-8 w-full">
+        <div className="flex items-center justify-center lg:w-auto mr-8">
           <img
             alt={post.author.name}
             height="30px"
@@ -26,7 +26,7 @@ const PostCard = ({ post, key }) => {
             src={post.author.picture.url}
           />
           <p className="inline align-middle text-gray-600 ml-2 text-lg">
-            {post.author.name}
+            {post.author.name} {post.author.surname}
           </p>
         </div>
         <div className="font-medium text-gray-600">
@@ -46,6 +46,12 @@ const PostCard = ({ post, key }) => {
           </svg>
           <span>{moment(post.createdAt).format("MMM DD, YYYY")}</span>
         </div>
+        
+      </div>
+      <div className="mb-8">
+        {post.tag.map((tag) => (
+          <Tag tag={tag} />
+        ))}
       </div>
       <div className="text-gray-800" dangerouslySetInnerHTML={{ __html: post.excerpt.html }} />
     </div>

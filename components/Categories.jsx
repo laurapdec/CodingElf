@@ -11,17 +11,15 @@ const categories = [
   { name: "Data science", slug: "data-science" },
 ];
 
-function Categories() {
+export default function Categories({tags}) {
   return (
     <div className="bg-[#fffae2] shadow-lg rounded-lg p-0 lg: p-8 pb-12 mb-8">
-      <div className="mb-6 ">Tags</div>
+      <div className="mb-6 text-lg font-bold text-center">Tags</div>
       <div >
-        {categories.map((category) => (
-          <Tag text={category.name} slug={category.slug} />
+        {tags.map((tag) => (
+          <Tag tag={tag} />
         ))}
       </div>
     </div>
   );
-}
-
-export default Categories;
+};

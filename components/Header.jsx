@@ -10,8 +10,13 @@ const Header = () => {
   return (
     <div className="container mx-auto px-10 mb-8 bg-[#cde1a8]">
       <div className="flex justify-around  w-full inline-block border-blue-400 py-8">
-        <div className="md:float-left block">
-          <Link href="/">
+        <div className="md:float-left flex items-center">
+          <img 
+            src="../Elfo.jpg"
+            class="mr-3 h-20 "
+            alt="Coding Elf Logo"
+              />
+          <Link href="/" >
             <span className="cursor-pointer font-bold text-4xl text-gray-800">
               Coding \\ Elf
             </span>
@@ -67,7 +72,7 @@ const Header = () => {
           </form>
           {categories.map((category) => (
             <Link key={category.slug} href={`/${category.slug}`}>
-              <span className="md:float-right mt-2 align-middle  ml-4 font-semibold text-gray-800 cursor-pointer">
+              <span className="md:float-right hover:text-black whitespace-nowrap m-2 flex items-center align-middle  ml-4 font-semibold text-gray-800 cursor-pointer">
                 {category.name}
               </span>
             </Link>

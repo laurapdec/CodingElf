@@ -2,7 +2,7 @@ import React from 'react'
 
 function ElfCard({author}) {
   return (
-    <div className="bg-[#fffae2] shadow-lg rounded-lg p-0 lg: p-8 pb-12 mb-8">
+    <div className="bg-[#fffae2] shadow-lg rounded-lg p-0 pb-12 mb-8 w-full mx-auto  md:w-5/6  lg:w-full lg:mx-0 lg:p-8">
         <div>
             <img
                 alt={author.name}
@@ -13,7 +13,7 @@ function ElfCard({author}) {
         <div className='text-center text-lg mb-5'>
             Hi, I'm <strong>{author.name}</strong>
         </div>    
-        <div className='text-sm '>
+        <div className='px-2 md:px-8  '>
             {author.biography}
         </div>    
     </div>

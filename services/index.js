@@ -4,44 +4,38 @@ const graphqlAPI = process.env.NEXT_PUB_GRAPHCMS_ENDPOINT;
 
 export const getPosts = async () => {
   const query = gql`
-    query MyQuery {
-      postsConnection {
-        edges {
-          cursor
-          node {
-            createdAt
-            date
-            title
-            slug
-            content {
-              html
-              markdown
-              raw
-              text
-            }
-            tags
-            author {
-              biography
-              name
-              id
-              picture {
-                url
-              }
-            }
-            coverImage {
+  query MyQuery {
+    postsConnection {
+      edges {
+        node {
+          createdAt
+          title
+          slug
+          excerpt {
+            html
+          }
+          content {
+            html
+          }
+          author {
+            name
+            surname
+            picture {
               url
             }
-            excerpt {
-              html
-              markdown
-              raw
-              text
-            }
+          }
+          coverImage {
+            url
+          }
+          tag {
+            title
+            slug
           }
         }
       }
     }
-  `;
+  }`;
+
 
   const result = await request(graphqlAPI, query);
 
@@ -70,4 +64,20 @@ export const GetAuthors = async() => {
   const result = await request(graphqlAPI, query);
 
   return result.authorsConnection.edges;
-}
+};
+
+
+export const GetTags = async() => {
+  const query = gql`
+  query MyQuery {
+    tags {
+          title
+          slug
+    }
+  }
+  `;
+
+  const result = await request(graphqlAPI, query);
+
+  return result.tags;
+};
