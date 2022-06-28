@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { PostCard, SocialMediaWidget, Categories } from "../components";
 import { getPosts, GetTags } from "../services";
+import React from "react";
 
 export default function Home({ posts ,tags}) {
   return (
