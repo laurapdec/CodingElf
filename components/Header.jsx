@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import Link from "next/link";
 
 const categories = [
@@ -13,7 +13,7 @@ const Header = () => {
         <div className="md:float-left flex items-center">
           <img 
             src="../Elfo.jpg"
-            class="mr-3 h-20 "
+            className="mr-3 h-20 "
             alt="Coding Elf Logo"
               />
           <Link href="/" >

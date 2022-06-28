@@ -1,4 +1,6 @@
 import React from 'react'
+import Link from 'next/link'
+import moment from 'moment'
 
 const Post = ({post}) => {
   return (
