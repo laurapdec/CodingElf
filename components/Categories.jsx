@@ -1,14 +1,7 @@
 import React from "react";
 import { Tag } from "../lib";
 
-const categories = [
-  { name: "Python", slug: "python" },
-  { name: "Javascript", slug: "javascript" },
-  { name: "Next.js", slug: "nextjs" },
-  { name: "Tailwind", slug: "tailwind" },
-  { name: "Web development", slug: "web-dev" },
-  { name: "Data science", slug: "data-science" },
-];
+
 
 export default function Categories({tags}) {
   return (
@@ -21,4 +14,4 @@ export default function Categories({tags}) {
       </div>
     </div>
   );
-};
+}
