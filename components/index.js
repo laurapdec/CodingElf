@@ -1,5 +1,5 @@
 export {default as PostCard} from './postcard';
-export {default as SocialMediaWidget} from './socialmediawidget';
+export {default as SocialMediaWidget} from './socialwidget';
 export {default as Categories} from './categories';
 export {default as Header} from './header';
 export {default as Footer} from './footer';
