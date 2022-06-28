@@ -25,7 +25,7 @@ function about_us({authors}) {
       <div className='text-lg font-bold text-center mb-4'>
       Contact Us
       </div>
-      <div className='hover:text-[#a081a4] text-center mb-10'>
+      <div className='hover:text-[#a081a4] text-center mb-4'>
         <Link href={"mailto:coding.elf@outlook.com"}>coding.elf@outlook.com</Link>
       </div>
     </div>
