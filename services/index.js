@@ -1,50 +1,73 @@
-import {request, gql} from 'graphql-request';
+import { request, gql } from "graphql-request";
 
 const graphqlAPI = process.env.NEXT_PUB_GRAPHCMS_ENDPOINT;
 
 export const getPosts = async () => {
-    const query = gql`
+  const query = gql`
     query MyQuery {
-        postsConnection {
-          edges {
-            cursor
-            node {
-              createdAt
-              date
-              title
-              slug
-              content {
-                html
-                markdown
-                raw
-                text
-              }
-              tags
-              author {
-                biography
-                name
-                id
-                picture {
-                  url
-                }
-              }
-              coverImage {
+      postsConnection {
+        edges {
+          cursor
+          node {
+            createdAt
+            date
+            title
+            slug
+            content {
+              html
+              markdown
+              raw
+              text
+            }
+            tags
+            author {
+              biography
+              name
+              id
+              picture {
                 url
               }
-              excerpt {
-                html
-                markdown
-                raw
-                text
-              }
+            }
+            coverImage {
+              url
+            }
+            excerpt {
+              html
+              markdown
+              raw
+              text
             }
           }
         }
       }
-      
-    `
+    }
+  `;
 
-    const result = await request(graphqlAPI,query);
+  const result = await request(graphqlAPI, query);
 
-    return result.postsConnection.edges;
+  return result.postsConnection.edges;
+};
+
+
+export const GetAuthors = async() => {
+  const query = gql`
+  query MyQuery {
+    authorsConnection {
+      edges {
+        node {
+          name
+          biography
+          picture {
+            url
+          }
+        }
+      }
+    }
+  }
+  
+  `;
+
+  const result = await request(graphqlAPI, query);
+
+  return result.authorsConnection.edges;
 }

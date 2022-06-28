@@ -1,11 +1,12 @@
 import React, { Children } from 'react'
-import {Header} from './';
+import {Header,Footer} from './';
 
 function Layout({children}) {
   return (
     <>
         <Header />
         {children}
+        <Footer/>
     </>
   )
 }

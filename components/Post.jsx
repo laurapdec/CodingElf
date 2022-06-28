@@ -1,10 +1,8 @@
-import React from "react";
-import moment from "moment";
-import Link from "next/link";
+import React from 'react'
 
-const PostCard = ({ post, key }) => {
-
+const Post = ({post}) => {
   return (
+    
     <div className="bg-[#fffae2] shadow-lg rounded-lg p-0 lg: p-8 pb-12 mb-8">
       <div className="relative overflow-hidden shadow-md pb-80 mb-6">
         <img
@@ -47,9 +45,9 @@ const PostCard = ({ post, key }) => {
           <span>{moment(post.createdAt).format("MMM DD, YYYY")}</span>
         </div>
       </div>
-      <div className="text-gray-800" dangerouslySetInnerHTML={{ __html: post.excerpt.html }} />
+      <div className="text-gray-800" dangerouslySetInnerHTML={{ __html: post.content.html }} />
     </div>
-  );
-};
+  )
+}
 
-export default PostCard;
+export default Post
