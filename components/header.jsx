@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const categories = [
   { name: "About Us", slug: "about-us" },
@@ -11,7 +12,7 @@ const Header = () => {
     <div className="container mx-auto px-10 mb-8 bg-[#cde1a8]">
       <div className="flex justify-around  w-full inline-block border-blue-400 py-8">
         <div className="md:float-left flex items-center">
-          <img 
+          <Image 
             src="../Elfo.jpg"
             className="mr-3 h-20 "
             alt="Coding Elf Logo"

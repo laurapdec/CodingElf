@@ -1,13 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
 import moment from 'moment'
+import Image from "next/image";
 
 const Post = ({post}) => {
   return (
     
     <div className="bg-[#fffae2] shadow-lg rounded-lg p-0 lg: p-8 pb-12 mb-8">
       <div className="relative overflow-hidden shadow-md pb-80 mb-6">
-        <img
+        <Image
           src={post.coverImage.url}
           alt={post.title}
           className="object-top absolute h-80 w-full object-cover shadow-lg ronded-t-lg lg:rounded-lg"
@@ -18,7 +19,7 @@ const Post = ({post}) => {
       </h1>
       <div className="block lg:flex text-center items-center justify-center mb-8 w-full">
         <div className="flex items-center justify-center mb-4 lg:w-auto mr-8">
-          <img
+          <Image
             alt={post.author.name}
             height="30px"
             width="30px"

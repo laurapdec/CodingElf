@@ -9,7 +9,7 @@ export default function Categories({tags}) {
       <div className="mb-6 text-lg font-bold text-center">Tags</div>
       <div >
         {tags.map((tag) => (
-          <Tag tag={tag} />
+          <Tag tag={tag} key={tag.slug} />
         ))}
       </div>
     </div>

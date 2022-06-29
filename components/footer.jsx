@@ -1,5 +1,6 @@
-import React from "react";
+import React  from "react";
 import { Instagram, Github, Twitter ,Mail } from "../lib";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -7,7 +8,7 @@ const Footer = () => {
       <div className="md:flex md:justify-between">
         <div className="mb-6 md:mb-0 flex content-center">
           <a href="https://codingelf.com/" className="flex items-center">
-            <img
+            <Image
               src="../Elfo.jpg"
               className="mr-3 h-8"
 

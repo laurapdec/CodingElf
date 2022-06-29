@@ -16,7 +16,7 @@ function about_us({authors}) {
       
       <div className="grid grid-col-1 lg:grid-cols-3  gap-9">
         {authors.map((author) => (
-          <ElfCard author={author.node}  />
+          <ElfCard author={author.node} key={author.node.slug}  />
         ))}
       </div>
     </div>

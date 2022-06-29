@@ -2,12 +2,13 @@ import React from "react";
 import moment from "moment";
 import Link from "next/link";
 import { Tag } from "../lib";
+import Image from "next/image";
 
 const PostCard = ({ post }) => {
   return (
     <div className="bg-[#fffae2] shadow-lg rounded-lg p-0 lg: p-8 pb-12 mb-8">
       <div className="relative overflow-hidden shadow-md pb-80 mb-6">
-        <img
+        <Image
           src={post.coverImage.url}
           alt={post.title}
           className="object-top absolute h-80 w-full object-cover shadow-lg ronded-t-lg lg:rounded-lg"
@@ -18,7 +19,7 @@ const PostCard = ({ post }) => {
       </h1>
       <div className="block lg:flex md:flex text-center items-center justify-center mb-8 w-full">
         <div className="flex items-center justify-center lg:w-auto mr-8">
-          <img
+          <Image
             alt={post.author.name}
             height="30px"
             width="30px"
@@ -50,7 +51,7 @@ const PostCard = ({ post }) => {
       </div>
       <div className="mb-8">
         {post.tag.map((tag) => (
-          <Tag tag={tag} />
+          <Tag tag={tag} key = {tag.slug}/>
         ))}
       </div>
       <div className="text-gray-800" dangerouslySetInnerHTML={{ __html: post.excerpt.html }} />
