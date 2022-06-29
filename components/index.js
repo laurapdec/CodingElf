@@ -7,3 +7,5 @@ export {default as Layout} from './layout';
 export {default as ElfCard} from './elfcard';
 export {default as Post} from './post';
 export {default as CompanyCard} from './companycard';
+export {default as RecentCard} from './recentcard';
+export {default as PostSquare} from './postsquare';

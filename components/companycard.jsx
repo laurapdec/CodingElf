@@ -3,7 +3,7 @@ import React from "react";
 function CompanyCard() {
   return (
     <div className="bg-[#fffae2] shadow-lg rounded-lg p-8 pb-12 mb-8 mx-auto w-full mx-auto  md:w-5/6 lg:mx-0  md:w-2/3 w-full lg:w-full ">
-      <div className="text-lg font-bold text-center mb-4">About Us</div>
+      <h1 className="text-lg font-bold text-center mb-4">About Us</h1>
       <div className="text-justify">
         <div className="px-2 md:px-8 "> &nbsp; Hi, did you got here after spending hours searching for a solution for your problem? Do you find yourself overwhelmed by some forums answers?<br /><br />
 
