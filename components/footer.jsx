@@ -1,19 +1,23 @@
 import React  from "react";
 import { Instagram, Github, Twitter ,Mail } from "../lib";
 import Image from "next/image";
+import elfoPic from "../public/Elfo.jpg";
 
 const Footer = () => {
   return (
     <footer className="p-4 bg-[#5b858f] sm:p-6 ">
       <div className="md:flex md:justify-between">
         <div className="mb-6 md:mb-0 flex content-center">
-          <a href="https://codingelf.com/" className="flex items-center">
-            <Image
-              src="../Elfo.jpg"
-              className="mr-3 h-8"
-
-              alt="Coding Elf Logo"
-            />
+          <a href="https://codingelf.com/" className=" flex items-center">
+            <div className="mx-4">
+              <Image
+                src={elfoPic}
+                className=" h-8 rounded-md"
+                width="80px"
+                height="80px"
+                alt="Coding Elf Logo"
+              />
+            </div>
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
               Coding // Elf
             </span>

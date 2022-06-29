@@ -11,6 +11,7 @@ const Post = ({post}) => {
         <Image
           src={post.coverImage.url}
           alt={post.title}
+          layout="fill"
           className="object-top absolute h-80 w-full object-cover shadow-lg ronded-t-lg lg:rounded-lg"
         />
       </div>
