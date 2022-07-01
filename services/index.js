@@ -4,7 +4,7 @@ const graphqlAPI = process.env.NEXT_PUB_GRAPHCMS_ENDPOINT;
 
 export const getPosts = async () => {
   const query = gql`
-  query MyQuery {
+  query GetPosts {
     postsConnection {
       edges {
         node {
@@ -45,7 +45,7 @@ export const getPosts = async () => {
 
 export const GetAuthors = async() => {
   const query = gql`
-  query MyQuery {
+  query GetAuthors {
     authorsConnection {
       edges {
         node {
@@ -69,7 +69,7 @@ export const GetAuthors = async() => {
 
 export const GetTags = async() => {
   const query = gql`
-  query MyQuery {
+  query GetTags {
     tags {
           title
           slug
@@ -80,4 +80,72 @@ export const GetTags = async() => {
   const result = await request(graphqlAPI, query);
 
   return result.tags;
+};
+
+
+
+export const getPostData = async(slug) => {
+  const query = gql`
+  query GetPostData ($slug:String!){
+    post(where:{slug:$slug}){
+      createdAt
+      title
+      slug
+      excerpt {
+        html
+      }
+      content {
+        html
+      }
+      author {
+        name
+        surname
+        biography  
+        picture {
+          url
+        }
+      }
+      coverImage {
+        url
+      }
+      tag {
+        title
+        slug
+      }
+    }
+  }
+  `;
+
+
+  const result = await request(graphqlAPI, query,{slug});
+
+  return result.post;
+};
+
+export const submitComment = async (obj) => {
+  const result = await fetch('/api/comments',{
+    method: 'POST',
+    body: JSON.stringify(obj),
+  })
+
+
+  return result.json();
+}
+
+
+export const getPostsFromTag = async(slug) => {
+  const query = gql`
+  query getPostsFromTag ($slug:String!){
+    tag(where: {slug: $slug}) {
+      post {
+        slug
+      }
+    }
+  }
+  `;
+
+
+  const result = await request(graphqlAPI, query,{slug});
+
+  return result.tag;
 };
