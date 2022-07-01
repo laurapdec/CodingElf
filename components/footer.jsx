@@ -1,7 +1,7 @@
 import React  from "react";
 import { Instagram, Github, Twitter ,Mail } from "../lib";
 import Image from "next/image";
-import elfoPic from "../public/Elfo.jpg";
+import elfoPic from "../public/elf_bgwhite.svg";
 
 const Footer = () => {
   return (

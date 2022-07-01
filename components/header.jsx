@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import elfoPic from "../public/Elfo.jpg";
+import elfoPic from "../public/elf_bgwhite.svg";
 
 const categories = [
   { name: "About Us", slug: "about-us" },
