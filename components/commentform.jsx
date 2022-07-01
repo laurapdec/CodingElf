@@ -41,10 +41,8 @@ const CommentForm = ({slug}) => {
       submitComment(commentObj)
         .then((res)=>{
           if (res.createComment) {
-            if (!storeData) {
-              formData.name = '';
-              formData.email = '';
-            }
+            formData.name = '';
+            formData.email = '';
             formData.comment = '';
             setFormData((prevState) => ({
               ...prevState,

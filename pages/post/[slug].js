@@ -31,7 +31,7 @@ const Article = ({post}) => {
 export default Article;
 
 export async function getStaticProps({ params }) {
-  const data = await getPostData(params.slug);
+  const data = (await getPostData(params.slug)) || [];;
 
   return {
     props: { post: data },
@@ -39,7 +39,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths (){
-    const posts = await getPosts()
+    const posts = (await getPosts()) || [];
 
     return{
         paths:posts.map(({node:{slug}}) => ({params:{slug}})),
