@@ -40,6 +40,7 @@ const CommentForm = ({slug}) => {
 
       submitComment(commentObj)
         .then((res)=>{
+          console.log(res);
           if (res.createComment) {
             formData.name = '';
             formData.email = '';

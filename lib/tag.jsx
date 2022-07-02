@@ -7,7 +7,7 @@ const Tag = ({ tag }) => {
 
   return (
     <div className="cursor-pointer inline-block w-auto m-1 hover:opacity-50 ">
-      <Link key={slug} href={`/category/${slug}`}>
+      <Link key={slug} href={`/tag/${slug}`}>
         <div className="bg-[#5b858f] text-white w-auto inline-block rounded-full p-1 p-1">
           <div className="mr-2 ml-1 inline-block fill-white">
             <svg

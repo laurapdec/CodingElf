@@ -1,4 +1,5 @@
 import { request, gql } from "graphql-request";
+import { server } from '../config';
 
 const graphqlAPI = process.env.NEXT_PUB_GRAPHCMS_ENDPOINT;
 
@@ -123,13 +124,16 @@ export const getPostData = async(slug) => {
 };
 
 export const submitComment = async (obj) => {
-  const result = await fetch('/api/comments',{
+
+  const input = {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(obj),
-  });
+  }
+  const result = await fetch(`${server}/api/comments`,input);
+
 
   return result.json();
 }
