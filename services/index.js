@@ -136,22 +136,4 @@ export const submitComment = async (obj) => {
 
 
   return result.json();
-}
-
-
-export const getPostsFromTag = async(slug) => {
-  const query = gql`
-  query getPostsFromTag ($slug:String!){
-    tag(where: {slug: $slug}) {
-      post {
-        slug
-      }
-    }
-  }
-  `;
-
-
-  const result = await request(graphqlAPI, query,{slug});
-
-  return result.tag;
 };
