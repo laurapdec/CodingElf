@@ -55,7 +55,7 @@ const PostCard = ({ post }) => {
           <Tag tag={tag} key = {tag.slug}/>
         ))}
       </div>
-      <div className="text-gray-800" dangerouslySetInnerHTML={{ __html: post.excerpt.html }} />
+      <div className="text-gray-800 text-justify" dangerouslySetInnerHTML={{ __html: post.excerpt.html }} />
     </div>
   );
 };

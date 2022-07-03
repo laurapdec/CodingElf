@@ -9,3 +9,6 @@ export {default as Post} from './post';
 export {default as CompanyCard} from './companycard';
 export {default as RecentCard} from './recentcard';
 export {default as PostSquare} from './postsquare';
+export {default as Comments} from './comments';
+export {default as CommentForm} from './commentform';
+export {default as SimilarPosts} from './similarposts';
