@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from "next/head";
-import {CompanyCard, ElfCard} from '../components'
-import { GetAuthors } from "../services";
+import {CompanyCard, ElfCard,ContactUs} from '../components'
+import { getAuthors } from "../services";
 import Link from 'next/link';
 
 function about_us({authors}) {
@@ -21,14 +21,7 @@ function about_us({authors}) {
       </div>
     </div>
 
-    <div className='w-full bg-[#fffae2] block p-10'>
-      <div className='text-lg font-bold text-center mb-4'>
-      Contact Us
-      </div>
-      <div className='hover:text-[#a081a4] text-center mb-4'>
-        <Link href={"mailto:coding.elf@outlook.com"}>coding.elf@outlook.com</Link>
-      </div>
-    </div>
+    <ContactUs/>
     </>
   );
 }
@@ -37,7 +30,7 @@ export default about_us
 
 
 export async function getStaticProps() {
-  const authors = (await GetAuthors()) || [];
+  const authors = (await getAuthors()) || [];
   return {
     props: { authors },
   };

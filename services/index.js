@@ -44,7 +44,48 @@ export const getPosts = async () => {
 };
 
 
-export const GetAuthors = async() => {
+export const getRecentPosts = async () => {
+  const query = gql`
+  query MyQuery {
+    postsConnection (orderBy: publishedAt_DESC) {
+      edges {
+        node {
+          createdAt
+          title
+          likes
+          slug
+          excerpt {
+            html
+          }
+          content {
+            html
+          }
+          author {
+            name
+            surname
+            picture {
+              url
+            }
+          }
+          coverImage {
+            url
+          }
+          tag {
+            title
+            slug
+          }
+        }
+      }
+    }
+  }`;
+
+
+  const result = await request(graphqlAPI, query);
+
+  return result.postsConnection.edges;
+};
+
+export const getAuthors = async() => {
   const query = gql`
   query MyQuery {
     authorsConnection {
@@ -68,7 +109,7 @@ export const GetAuthors = async() => {
 };
 
 
-export const GetTags = async() => {
+export const getTags = async() => {
   const query = gql`
   query MyQuery {
     tags {

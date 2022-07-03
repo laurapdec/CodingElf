@@ -1,18 +1,18 @@
 import Head from "next/head";
 import { PostCard, SocialMediaWidget, Categories , RecentCard } from "../components";
 import { FloatingBar ,TagFilter } from "../lib";
-import { getPosts, GetTags } from "../services";
+import { getPosts, getTags,getRecentPosts } from "../services";
 import React from "react";
 
-export default function Home({ posts ,tags}) {
+export default function Home({ posts ,tags , recentposts}) {
   return (
     <div className="container mx-auto px-10 mb-8">
       <Head>
         <title>Coding Elf</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <RecentCard posts={posts}/>
-      <TagFilter />
+      <RecentCard posts={recentposts}/>
+      <TagFilter tags={tags} />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-8 col-span-1">
         
@@ -38,9 +38,10 @@ export default function Home({ posts ,tags}) {
 
 export async function getStaticProps() {
   const posts = (await getPosts()) || [];
-  const tags = (await GetTags()) || [];
+  const tags = (await getTags()) || [];
+  const recentposts = (await getRecentPosts()) || [];
 
   return {
-    props: { posts ,tags},
+    props: { posts , tags , recentposts},
   };
 }

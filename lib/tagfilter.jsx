@@ -1,12 +1,12 @@
 import React from "react";
 import Tag from "./tag";
 
-function TagFilter({tags, tagon}) {
-  console.log(tagon);
+function TagFilter({tags, tagon={"slug":undefined,"title":undefined}}) {
+
   return (
-    <div className=" lg:hidden shadow-lg bg-black/10 mx-auto w-auto inline-block rounded-full px-3 py-1 mb-8 cursor-pointer   ">
+    <div className=" lg:hidden shadow-lg bg-black/10 mx-auto w-full inline-block h-18 rounded-full px-3 py-1 mb-8 cursor-pointer  ">
         <div className="flex items-center ">
-            <span>{<Tag tag={tagon} key={tagon.slug} selected={true} /> ||"Filters"}</span>
+            <span className="text-center w-full text-sm font-bold">Filters</span>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"
@@ -23,6 +23,15 @@ function TagFilter({tags, tagon}) {
                 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"
                 />
             </svg>
+        </div>
+        <div className="w-full flex ">
+          {tags.map((tag)=>{
+            if (tag.slug === tagon.slug){
+              return <Tag tag={tag} key={tag.slug} selected={true}/>
+            } else {
+              return <Tag tag={tag} key={tag.slug} />
+            }
+            })}
         </div>
     </div>
   );
