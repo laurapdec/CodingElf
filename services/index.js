@@ -81,3 +81,60 @@ export const GetTags = async() => {
 
   return result.tags;
 };
+
+
+
+export const getPostData = async(slug) => {
+  const query = gql`
+  query GetPostData ($slug:String!){
+    post(where:{slug:$slug}){
+      createdAt
+      title
+      slug
+      excerpt {
+        html
+      }
+      content {
+        html
+      }
+      author {
+        name
+        surname
+        biography  
+        picture {
+          url
+        }
+      }
+      coverImage {
+        url
+      }
+      tag {
+        title
+        slug
+      }
+    }
+  }
+  `;
+
+
+  const result = await request(graphqlAPI, query,{slug});
+
+  return result.post;
+};
+
+export const getPostsFromTag = async(slug) => {
+  const query = gql`
+  query getPostsFromTag ($slug:String!){
+    tag(where: {slug: $slug}) {
+      post {
+        slug
+      }
+    }
+  }
+  `;
+
+
+  const result = await request(graphqlAPI, query,{slug});
+
+  return result.tag;
+};

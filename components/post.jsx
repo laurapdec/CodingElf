@@ -5,8 +5,7 @@ import Image from "next/image";
 
 const Post = ({post}) => {
   return (
-    
-    <div className="bg-[#fffae2] shadow-lg rounded-lg p-0 lg: p-8 pb-12 mb-8">
+    <div className="bg-[#fffae2] shadow-lg rounded-lg p-8 pb-12 mb-8 w-full mx-auto  md:w-5/6  lg:w-full lg:mx-0 lg:p-8">
       <div className="relative overflow-hidden shadow-md pb-80 mb-6">
         <Image
           src={post.coverImage.url}
@@ -19,18 +18,6 @@ const Post = ({post}) => {
         <Link href={`/post/${post.slug}`}>{post.title}</Link>
       </h1>
       <div className="block lg:flex text-center items-center justify-center mb-8 w-full">
-        <div className="flex items-center justify-center mb-4 lg:w-auto mr-8">
-          <Image
-            alt={post.author.name}
-            height="30px"
-            width="30px"
-            className="align-middle rounded-full"
-            src={post.author.picture.url}
-          />
-          <p className="inline align-middle text-gray-600 ml-2 text-lg">
-            {post.author.name}
-          </p>
-        </div>
         <div className="font-medium text-gray-600">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +36,7 @@ const Post = ({post}) => {
           <span>{moment(post.createdAt).format("MMM DD, YYYY")}</span>
         </div>
       </div>
-      <div className="text-gray-800" dangerouslySetInnerHTML={{ __html: post.content.html }} />
+      <div className="text-gray-800 text-justify" dangerouslySetInnerHTML={{ __html: post.content.html }} />
     </div>
   )
 }
