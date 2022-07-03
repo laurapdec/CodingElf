@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 import Link from "next/link";
-import { Tag } from "../lib";
+import { Likes, Tag } from "../lib";
 import Image from "next/image";
 
 const PostCard = ({ post }) => {
@@ -48,6 +48,7 @@ const PostCard = ({ post }) => {
           </svg>
           <span>{moment(post.createdAt).format("MMM DD, YYYY")}</span>
         </div>
+        <Likes likes={post.likes}/>
         
       </div>
       <div className="mb-8">
@@ -55,6 +56,7 @@ const PostCard = ({ post }) => {
           <Tag tag={tag} key = {tag.slug}/>
         ))}
       </div>
+      
       <div className="text-gray-800 text-justify" dangerouslySetInnerHTML={{ __html: post.excerpt.html }} />
     </div>
   );

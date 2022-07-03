@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import moment from 'moment'
 import Image from "next/image";
+import { Likes } from '../lib';
 
 const Post = ({post}) => {
   return (
@@ -35,6 +36,8 @@ const Post = ({post}) => {
           </svg>
           <span>{moment(post.createdAt).format("MMM DD, YYYY")}</span>
         </div>
+        <Likes likes={post.likes} />
+      
       </div>
       <div className="text-gray-800 text-justify" dangerouslySetInnerHTML={{ __html: post.content.html }} />
     </div>
