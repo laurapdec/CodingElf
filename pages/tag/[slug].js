@@ -1,14 +1,12 @@
 import React from "react";
 import { Categories, PostCard, SocialMediaWidget,RecentCard } from "../../components";
 import { getPostsFromTag, getTags , getRecentPosts} from "../../services";
-import { TagFilter,FloatingBar } from "../../lib";
-
+import { FloatingBar } from "../../lib";
 
 const Search = ({tags, selectedtag, tagposts,recentposts}) => {
   return (
     <div className="container mx-auto px-10 mb-8">
       <RecentCard posts={recentposts}/>
-      <TagFilter tags={tags} tagon={selectedtag}/>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="col-span-1 lg:col-span-8">
           {tagposts.map((post) => (
