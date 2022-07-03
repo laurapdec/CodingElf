@@ -9,7 +9,7 @@ import {
 } from "../../components";
 import { FloatingBar } from "../../lib";
 
-const Article = ({post}) => {
+const Article = ({post, posts}) => {
   return (
     <div className="container mx-auto px-10 mb-8">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -21,7 +21,7 @@ const Article = ({post}) => {
         <div className="col-span-1 lg:col-span-4">
           <div className="relative lg:sticky">
             <ElfCard author={post.author}/>
-            <SimilarPosts />
+            <SimilarPosts posts={posts} />
           </div>
           <FloatingBar likes={post.likes} slug={post.slug}/>
         </div>
@@ -33,10 +33,11 @@ const Article = ({post}) => {
 export default Article;
 
 export async function getStaticProps({ params }) {
-  const data = (await getPostData(params.slug)) || [];;
+  const data = (await getPostData(params.slug)) || [];
+  const posts = (await getPosts()) || [];
 
   return {
-    props: { post: data },
+    props: { post: data, posts:posts},
   };
 }
 
