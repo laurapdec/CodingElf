@@ -9,7 +9,7 @@ export default function Categories({tags , tagon=""}) {
       <h2 className="mb-6 text-lg font-bold text-center">Tags</h2>
       <div >
         {tags.map((tag) => {
-      if (tag.slug === tagon){
+      if (tag.slug === tagon.slug){
         return <Tag tag={tag} key={tag.slug} selected={true}/>
       } else {
         return <Tag tag={tag} key={tag.slug} />

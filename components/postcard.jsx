@@ -53,7 +53,7 @@ const PostCard = ({ post , tagon="" }) => {
       </div>
       <div className="mb-8">
         {post.tag.map((tag) => {
-        if (tag.slug === tagon){
+        if (tag.slug === tagon.slug){
           return <Tag tag={tag} key={tag.slug} selected={true}/>
         } else {
           return <Tag tag={tag} key={tag.slug} />

@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { PostCard, SocialMediaWidget, Categories , RecentCard } from "../components";
+import { FloatingBar ,TagFilter } from "../lib";
 import { getPosts, GetTags } from "../services";
 import React from "react";
 
@@ -11,6 +12,7 @@ export default function Home({ posts ,tags}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <RecentCard posts={posts}/>
+      <TagFilter />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-8 col-span-1">
         
@@ -20,10 +22,13 @@ export default function Home({ posts ,tags}) {
         </div>
 
         <div className="lg:col-span-4 col-span-1">
-          <div className="lg:sticky relatve top-8 ">
+          <div className="hidden lg:block lg:sticky relatve top-8 ">
             <SocialMediaWidget />
 
             <Categories tags={tags}/>
+          </div>
+          <div className="lg:hidden">
+            <FloatingBar />
           </div>
         </div>
       </div>

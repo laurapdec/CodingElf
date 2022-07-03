@@ -4,6 +4,7 @@ import Link from "next/link";
 const Tag = ({ tag , selected=false}) => {
   const slug = tag.slug;
   const text = tag.title;
+  console.log(tag.title);
   var color = "[#5b858f]"
   if(selected === true){
     var color = "blue-500";
