@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Likes, Tag } from "../lib";
 import Image from "next/image";
 
-const PostCard = ({ post }) => {
+const PostCard = ({ post , tagon="" }) => {
   return (
     <div className="bg-[#fffae2] shadow-lg rounded-lg p-0 lg: p-8 pb-12 mb-8">
       <div className="relative overflow-hidden shadow-md pb-80 mb-6">
@@ -52,9 +52,14 @@ const PostCard = ({ post }) => {
         
       </div>
       <div className="mb-8">
-        {post.tag.map((tag) => (
-          <Tag tag={tag} key = {tag.slug}/>
-        ))}
+        {post.tag.map((tag) => {
+        if (tag.slug === tagon){
+          return <Tag tag={tag} key={tag.slug} selected={true}/>
+        } else {
+          return <Tag tag={tag} key={tag.slug} />
+        }
+        
+        })}
       </div>
       
       <div className="text-gray-800 text-justify" dangerouslySetInnerHTML={{ __html: post.excerpt.html }} />

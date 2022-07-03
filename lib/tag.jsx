@@ -1,14 +1,20 @@
 import React from "react";
 import Link from "next/link";
 
-const Tag = ({ tag }) => {
+const Tag = ({ tag , selected=false}) => {
   const slug = tag.slug;
   const text = tag.title;
-
+  var color = "[#5b858f]"
+  if(selected === true){
+    var color = "blue-500";
+  }
+  
+  var style = "bg-"+color+" text-white w-auto inline-block rounded-full p-1 p-1"
+  
   return (
     <div className="cursor-pointer inline-block w-auto m-1 hover:opacity-50 ">
-      <Link key={slug} href={`/category/${slug}`}>
-        <div className="bg-[#5b858f] text-white w-auto inline-block rounded-full p-1 p-1">
+      <Link key={slug} href={`/tag/${slug}`}>
+        <div className={style}>
           <div className="mr-2 ml-1 inline-block fill-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"

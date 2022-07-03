@@ -124,19 +124,44 @@ export const getPostData = async(slug) => {
   return result.post;
 };
 
-export const getPostsFromTag = async(slug) => {
+
+export const getPostsFromTag = async (tagslug) => {
   const query = gql`
-  query getPostsFromTag ($slug:String!){
-    tag(where: {slug: $slug}) {
-      post {
-        slug
+  query GetPostsFromTag ($tagslug:String!) {
+    postsConnection (where: {tag_some: {slug: $tagslug}}) {
+      edges {
+        node {
+          createdAt
+          title
+          likes
+          slug
+          excerpt {
+            html
+          }
+          content {
+            html
+          }
+          author {
+            name
+            surname
+            picture {
+              url
+            }
+          }
+          coverImage {
+            url
+          }
+          tag {
+            title
+            slug
+          }
+        }
       }
     }
-  }
-  `;
+  }`;
 
 
-  const result = await request(graphqlAPI, query,{slug});
+  const result = await request(graphqlAPI, query,{tagslug});
 
-  return result.tag;
+  return result.postsConnection.edges;
 };
