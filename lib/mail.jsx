@@ -1,13 +1,19 @@
 import React from "react";
 import Link from "next/link";
 
-function Mail({size}) {
+function Mail({size, styleoptions=""}) {
+  var finalstyle = styleoptions ;
+
+  if (styleoptions === ""){
+    var finalstyle = "fill-gray-800 hover:fill-[#d0877a] transition duration-500 transform hover:-translate-y-2 ";
+  }
   return (
-    <Link href="mailto:coding.elf@outlook.com">
-      <span className="cursor-pointer fill-gray-800 hover:fill-[#d0877a] transition duration-500 transform hover:-translate-y-2  ">
+    <a target="_blank" href="mailto:coding.elf@outlook.com" rel="noopener noreferrer">
+      <span className="cursor-pointer  ">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 64 64"
+          className={finalstyle}
           width={size}
           height={size}
         >
@@ -17,7 +23,7 @@ function Mail({size}) {
           />
         </svg>
       </span>
-    </Link>
+    </a>
   );
 }
 

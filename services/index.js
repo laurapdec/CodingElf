@@ -10,6 +10,7 @@ export const getPosts = async () => {
         node {
           createdAt
           title
+          likes
           slug
           excerpt {
             html
@@ -91,6 +92,7 @@ export const getPostData = async(slug) => {
       createdAt
       title
       slug
+      likes
       excerpt {
         html
       }

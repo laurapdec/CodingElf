@@ -7,6 +7,7 @@ import {
   SimilarPosts,
   ElfCard,
 } from "../../components";
+import { FloatingBar } from "../../lib";
 
 const Article = ({post}) => {
   return (
@@ -22,6 +23,7 @@ const Article = ({post}) => {
             <ElfCard author={post.author}/>
             <SimilarPosts />
           </div>
+          <FloatingBar likes={post.likes} slug={post.slug}/>
         </div>
       </div>
     </div>
