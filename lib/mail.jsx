@@ -8,7 +8,7 @@ function Mail({size, styleoptions=""}) {
     var finalstyle = "fill-gray-800 hover:fill-[#d0877a] transition duration-500 transform hover:-translate-y-2 ";
   }
   return (
-    <a target="_blank" href="mailto:coding.elf@outlook.com">
+    <a target="_blank" href="mailto:coding.elf@outlook.com" rel="noopener noreferrer">
       <span className="cursor-pointer  ">
         <svg
           xmlns="http://www.w3.org/2000/svg"

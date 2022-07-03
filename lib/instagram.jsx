@@ -9,7 +9,7 @@ function Instagram({size, styleoptions=""}) {
   }
 
   return (
-    <a target="_blank" href="https://www.instagram.com/coding.elf">
+    <a target="_blank" href="https://www.instagram.com/coding.elf" rel="noopener noreferrer">
       <span className="cursor-pointer">
         <svg
           xmlns="http://www.w3.org/2000/svg"
