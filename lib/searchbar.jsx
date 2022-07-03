@@ -11,7 +11,7 @@ const SearchBar = ({inpt}) => {
                 <div className="relative w-full">
                 <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                     <svg
-                    className="w-5 h-5 text-gray-500 dark:text-gray-400"
+                    className="w-5 h-5 text-gray-500"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
@@ -26,14 +26,14 @@ const SearchBar = ({inpt}) => {
                 <input
                     type="text"
                     id="simple-search"
-                    className="bg-[#fffae2] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:ring-2 block w-full pl-10 p-2.5"
+                    className="bg-[#fffae2] border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-gray-400 focus:ring-2 block w-full pl-10 p-2.5"
                     placeholder="Search"
                     required
                 />
                 </div>
                 <button
                 type="submit"
-                className="p-2.5 ml-2 text-sm font-medium text-white bg-gray-900 rounded-lg hover:bg-black-800 focus:ring-gray-500 focus:ring-2"
+                className="p-2.5 ml-2 text-sm font-medium text-white bg-gray-900 rounded-lg hover:bg-black-800 focus:ring-gray-400 focus:ring-2"
                 >
                 <svg
                     className="w-5 h-5"
