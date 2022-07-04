@@ -142,10 +142,10 @@ export const getPostsFromTag = async(slug) => {
 };
 
 
-export const getSimilarPosts = async ({slug}) => {
+export const getSimilarPosts = async ({slug},postslug) => {
   const query = gql`
-  query GetSimilarPosts ($slug:String!) {
-    postsConnection(orderBy: likes_ASC, where: {tag_some: {slug: $slug}}) {
+  query GetSimilarPosts ($slug:String!,$postslug:String!) {
+    postsConnection(orderBy: likes_DESC, where: {tag_some: {slug: $slug}, slug_not:  $postslug }) {
       edges {
         node {
           likes
@@ -157,8 +157,7 @@ export const getSimilarPosts = async ({slug}) => {
     }
   }
   `;
-
-  const result = await request(graphqlAPI, query,{slug});
+  const result = await request(graphqlAPI, query,{slug,postslug});
 
   return result.postsConnection.edges;
 };

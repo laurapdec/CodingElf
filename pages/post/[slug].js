@@ -39,7 +39,7 @@ export default Article;
 
 export async function getStaticProps({ params }) {
   const data = (await getPostData(params.slug)) || [];
-  const posts = (await getSimilarPosts(data.tag[0])) || [];
+  const posts = (await getSimilarPosts(data.tag[0],params.slug)) || [];
   
   return {
     props: { post: data, similarposts : posts},
