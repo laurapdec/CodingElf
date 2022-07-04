@@ -215,3 +215,22 @@ export const addLike = async ({slug}) => {
 };
 
 
+export const getSimilarPosts = async ({slug},postslug) => {
+  const query = gql`
+  query GetSimilarPosts ($slug:String!,$postslug:String!) {
+    postsConnection(orderBy: likes_DESC, where: {tag_some: {slug: $slug}, slug_not:  $postslug }) {
+      edges {
+        node {
+          likes
+          slug
+          title
+          createdAt
+        }
+      }
+    }
+  }
+  `;
+  const result = await request(graphqlAPI, query,{slug,postslug});
+
+  return result.postsConnection.edges;
+};
