@@ -215,3 +215,43 @@ export const addLike = async ({slug}) => {
 };
 
 
+export const getPostsFromSearch = async ({search}) => {
+  const query = gql`
+    query GetPostsFromSearch($search: String!) {
+      postsConnection(where: { _search: $search }) {
+        edges {
+          node {
+            createdAt
+            title
+            likes
+            slug
+            excerpt {
+              html
+            }
+            content {
+              html
+            }
+            author {
+              name
+              surname
+              picture {
+                url
+              }
+            }
+            coverImage {
+              url
+            }
+            tag {
+              title
+              slug
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, { search });
+
+  return result.postsConnection.edges;
+};
