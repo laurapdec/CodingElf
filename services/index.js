@@ -140,3 +140,25 @@ export const getPostsFromTag = async(slug) => {
 
   return result.tag;
 };
+
+
+export const getSimilarPosts = async ({slug}) => {
+  const query = gql`
+  query GetSimilarPosts ($slug:String!) {
+    postsConnection(orderBy: likes_ASC, where: {tag_some: {slug: $slug}}) {
+      edges {
+        node {
+          likes
+          slug
+          title
+          createdAt
+        }
+      }
+    }
+  }
+  `;
+
+  const result = await request(graphqlAPI, query,{slug});
+
+  return result.postsConnection.edges;
+};
