@@ -14,20 +14,20 @@ const Header = () => {
     <div className="container mx-auto px-10 mb-8 bg-[#cde1a8]">
       <div className="flex justify-around  w-full inline-block border-blue-400 py-8">
         <div className="md:float-left flex items-center px-2 mx-1">
-          <div className="mx-4">
-            <Image 
-              src={elfoPic}
-              className="rounded-md "
-              alt="Coding Elf Logo"
-              width="80px"
-              height="80px"
-                />
-          </div>
-          <Link href="/" >
+          <a href="https://codingelf.com/" className=" flex items-center">
+            <div className="mx-4">
+              <Image 
+                src={elfoPic}
+                className="rounded-md "
+                alt="Coding Elf Logo"
+                width="80px"
+                height="80px"
+                  />
+            </div>
             <span className="cursor-pointer font-bold text-4xl text-gray-800">
               Coding \\ Elf
             </span>
-          </Link>
+          </a>
         </div>
         <div className="hidden md:float-left md:contents">
           <SearchBar inpt={'px-4'}/>            

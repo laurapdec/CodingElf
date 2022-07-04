@@ -5,10 +5,14 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 const responsive = {
-    desktop: {
-      breakpoint: { max: 4000, min: 1020 },
-      items: 3,
-    },
+  larger: {
+    breakpoint: { max: 4000, min: 1300 },
+    items: 4,
+  },
+  desktop: {
+    breakpoint: { max: 1300, min: 1020 },
+    items: 3,
+  },
     tablet: {
       breakpoint: { max: 1020, min: 640 },
       items: 2,
@@ -43,7 +47,7 @@ function RecentCard({ posts }) {
     <div className=" shadow-lg bg-black/10  rounded-lg px-8 py-8 mb-8 mx-auto w-full  sm:px-4 lg:px-2 ">
         <Carousel infinite customLeftArrow={customLeftArrow} customRightArrow={customRightArrow} responsive={responsive} itemClass=" sm:px-4 lg:px-6">
             {posts.map((post) => (
-                <PostSquare post={post.node} key={post.title} />
+                <PostSquare post={post.node} key={post.slug} />
             ))}
         </Carousel>
     </div>

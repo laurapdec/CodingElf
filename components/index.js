@@ -12,3 +12,4 @@ export {default as PostSquare} from './postsquare';
 export {default as Comments} from './comments';
 export {default as CommentForm} from './commentform';
 export {default as SimilarPosts} from './similarposts';
+export {default as ContactUs} from './contactus';

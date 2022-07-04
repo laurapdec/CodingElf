@@ -1,14 +1,30 @@
-import React from "react";
+import React,{useState} from "react";
 
-function Likes({likes , generalstyle="", heartstyle="",textstyle ="",size="24px"}) {
+function Likes({likesinit = 0, generalstyle="", heartstyle="",textstyle ="",size="24px",slug=""}) {
   var heartstylefinal = heartstyle + " inline cursor-pointer";
+  const [lik, setLikesQtd] = useState(likesinit);
 
   if (heartstyle === ""){
     var heartstylefinal = " inline  fill-gray-600  hover:fill-pink-400 transition ease duration-300 cursor-pointer";
   }
 
+  const onSubmit = async () =>{
+    setLikesQtd(lik+1);
+    console.log(lik);
+    var likes =lik +1;
+
+    await fetch(`/api/likes/add`, {
+      method: "POST",
+      body: JSON.stringify({ likes , slug }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+  };
+
   return (
-    <div className={generalstyle}>
+    <button className={generalstyle} onClick={onSubmit}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className={heartstylefinal}
@@ -22,8 +38,8 @@ function Likes({likes , generalstyle="", heartstyle="",textstyle ="",size="24px"
 	C235.26,57.99,236.537,96.466,213.588,120.982z"
         />
       </svg>
-      <span className={textstyle + " mx-2"}>{likes}</span>
-    </div>
+      <span className={textstyle + " mx-2"}>{lik}</span>
+    </button>
   );
 }
 
