@@ -33,12 +33,12 @@ const CommentForm = ({slug}) => {
 
   return (
     <div className="bg-[#fffae2] shadow-lg rounded-lg p-8 pb-12 mb-8 w-full mx-auto  md:w-5/6  lg:w-full lg:mx-0 lg:p-8">
-      <h2 className="mb-6 text-lg font-bold text-center">Leave us a comment</h2>
+      <h2 className="mb-6 text-lg font-bold text-center">Deixe um comentário</h2>
         <div className="grid grid-cols-1 gap-4 mb-4">
           <textarea 
           value={formData.comment} 
           onChange={onInputChange} 
-          placeholder="Comment"
+          placeholder="Comentário"
           name="comment"
           className="bg-[#e6e1cb] p-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-[#b3af9e] text-" />
         </div>
@@ -46,7 +46,7 @@ const CommentForm = ({slug}) => {
           <input 
           type="text"
           value={formData.name} 
-          placeholder="Name"
+          placeholder="Nome"
           name="name"
           onChange={onInputChange} 
           className="bg-[#e6e1cb] px-4 py-2 outline-none w-full rounded-lg focus:ring-2 focus:ring-[#b3af9e] text-" />
@@ -65,9 +65,9 @@ const CommentForm = ({slug}) => {
           type="button" 
           onClick={handleCommentSubmission}
           className="transition w-full durarion-500 ease bg-[#b25d56] text-lg font-bold text-slate-200 p-2 rounded-full hover:bg-[#8e4a45]">
-            Submit
+            Enviar
           </button>
-          {showSuccessMessage && <span className="text-xl float-right font-semibold text-green-600 mt-3 "> Comment Submitted!</span>}
+          {showSuccessMessage && <span className="text-xl float-right font-semibold text-green-600 mt-3 "> Comentário enviado!</span>}
         </div>
     </div>
   );

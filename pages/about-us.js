@@ -9,7 +9,7 @@ function about_us({authors}) {
     <>
     <div className="container mx-auto px-10 mb-8">
       <Head>
-        <title>The Elves</title>
+        <title>Os elfos</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <CompanyCard />
@@ -23,7 +23,7 @@ function about_us({authors}) {
 
     <div className='w-full bg-[#fffae2] block p-10'>
       <div className='text-lg font-bold text-center mb-4'>
-      Contact Us
+      Entre em contato
       </div>
       <div className='hover:text-[#a081a4] text-center mb-4'>
         <Link href={"mailto:coding.elf@outlook.com"}>coding.elf@outlook.com</Link>
