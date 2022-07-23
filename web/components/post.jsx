@@ -2,14 +2,15 @@ import React from 'react'
 import Link from 'next/link'
 import moment from 'moment'
 import Image from "next/image";
-import { Likes } from '../lib';
+import { Likes, ptComponents } from '../lib';
+import {PortableText} from '@portabletext/react';
 
-const Post = ({post}) => {
+const Post = (post) => {
   return (
     <div className="bg-[#fffae2] shadow-lg rounded-lg p-8 pb-12 mb-8 w-full mx-auto  md:w-5/6  lg:w-full lg:mx-0 lg:p-8">
       <div className="relative overflow-hidden shadow-md pb-80 mb-6">
         <Image
-          src={post.coverImage.url}
+          src={post.image}
           alt={post.title}
           layout="fill"
           className="object-top absolute h-80 w-full object-cover shadow-lg ronded-t-lg lg:rounded-lg"
@@ -38,7 +39,12 @@ const Post = ({post}) => {
         </div>
       
       </div>
-      <div className="text-gray-800 text-justify" dangerouslySetInnerHTML={{ __html: post.content.html }} />
+      <div className="text-gray-800 text-justify" >
+        <PortableText
+          value={post.body}
+          components={ptComponents}
+        />
+      </div>
     </div>
   )
 }
