@@ -7,6 +7,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@sanity/client": "^3.3.2",
     "@trendyol-js/react-carousel": "^3.0.0",
     "builtin-modules": "^3.3.0",
     "esbuild": "^0.14.47",
@@ -16,7 +17,7 @@
     "module": "^1.0.0",
     "moment": "^2.29.3",
     "net": "^1.0.2",
-    "next": "latest",
+    "next": "^12.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.1.0",
     "react-multi-carousel": "^2.8.2",

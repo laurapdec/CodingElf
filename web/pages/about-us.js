@@ -3,6 +3,7 @@ import Head from "next/head";
 import {CompanyCard, ElfCard,ContactUs} from '../components'
 import { getAuthors } from "../services";
 import Link from 'next/link';
+import client from '../client'
 
 function about_us({authors}) {
   return (
@@ -15,9 +16,7 @@ function about_us({authors}) {
       <CompanyCard />
       
       <div className="grid grid-col-1 lg:grid-cols-3  gap-9">
-        {authors.map((author) => (
-          <ElfCard author={author.node} key={author.node.slug}  />
-        ))}
+        {authors}
       </div>
     </div>
 
@@ -31,7 +30,12 @@ export default about_us
 
 export async function getStaticProps() {
   const authors = (await getAuthors()) || [];
+  const auts = await client.fetch(
+    `*[_type == "author" ]{name,bio}`
+  )
+  console.log(auts);
+
   return {
-    props: { authors },
+    props: { auts },
   };
 }
