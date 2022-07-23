@@ -41,7 +41,6 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths (){
     const tags = (await getTags()) || [];
-    console.log(tags)
     return{
         paths:tags.map((tag) => ({params:tag})),
         fallback: false
