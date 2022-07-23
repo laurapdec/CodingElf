@@ -23,3 +23,67 @@ export async function getCompanyBio(){
   
   return result[0];
 };
+
+
+export async function getPosts(){
+  const query =  `*[_type=="post"]{
+    _id,
+    "data":{
+      title,
+      "author":{
+         "name":author->name,
+        "image":author->image.asset->url,
+      },
+      "image":mainImage.asset->url,
+      body,
+      likes,
+      categories[]->{
+      title,
+      "slug":slug.current
+      },
+      "slug":slug.current
+    }
+  }   `;
+  const result = await client.fetch( query );
+  
+  return result;
+};
+
+
+
+export async function getTags(){
+  const query =  `*[_type=="category"]{
+    _id,
+    title,
+    slug
+  }`;
+  const result = await client.fetch( query );
+  
+  return result;
+};
+
+
+
+export async function getRecentPosts(){
+  const query =  `*[_type=="post"]{
+    _id,
+    "data":{
+      title,
+      "author":{
+         "name":author->name,
+        "image":author->image.asset->url,
+      },
+      "image":mainImage.asset->url,
+      body,
+      likes,
+      categories[]->{
+      title,
+      "slug":slug.current
+      },
+      "slug":slug.current
+    }
+  }    | order(_createdAt asc)`;
+  const result = await client.fetch( query );
+  
+  return result;
+};

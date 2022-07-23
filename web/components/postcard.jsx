@@ -1,15 +1,17 @@
 import React from "react";
 import moment from "moment";
 import Link from "next/link";
-import { Likes, Tag } from "../lib";
+import { Likes, ptComponents, Tag } from "../lib";
 import Image from "next/image";
+import {PortableText} from '@portabletext/react';
 
 const PostCard = ({ post , tagon="" }) => {
+  console.log(post.categories)
   return (
     <div className="bg-[#fffae2] shadow-lg rounded-lg p-0 lg: p-8 pb-12 mb-8">
       <div className="relative overflow-hidden shadow-md pb-80 mb-6">
         <Image
-          src={post.coverImage.url}
+          src={post.image}
           alt={post.title}
           layout="fill"
           className="object-top absolute h-80 w-full object-cover shadow-lg ronded-t-lg lg:rounded-lg"
@@ -25,10 +27,10 @@ const PostCard = ({ post , tagon="" }) => {
             height="30px"
             width="30px"
             className="align-middle rounded-full"
-            src={post.author.picture.url}
+            src={post.author.image}
           />
           <p className="inline align-middle text-gray-600 ml-2 text-lg">
-            {post.author.name} {post.author.surname}
+            {post.author.name}
           </p>
         </div>
         <div className="font-medium text-gray-600">
@@ -52,7 +54,7 @@ const PostCard = ({ post , tagon="" }) => {
         
       </div>
       <div className="mb-8">
-        {post.tag.map((tag) => {
+        {post.categories.map((tag) => {
         if (tag.slug === tagon.slug){
           return <Tag tag={tag} key={tag.slug} selected={true}/>
         } else {
@@ -62,7 +64,12 @@ const PostCard = ({ post , tagon="" }) => {
         })}
       </div>
       
-      <div className="text-gray-800 text-justify" dangerouslySetInnerHTML={{ __html: post.excerpt.html }} />
+      <div className="text-gray-800 text-justify" >
+        <PortableText
+          value={post.body}
+          components={ptComponents}
+        />
+      </div>
     </div>
   );
 };

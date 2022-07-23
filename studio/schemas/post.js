@@ -52,6 +52,11 @@ export default {
       title: 'Body',
       type: 'blockContent',
     },
+    {
+      name: 'likes',
+      title: 'Likes',
+      type: 'number',
+    },
   ],
 
   preview: {

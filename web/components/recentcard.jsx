@@ -47,7 +47,7 @@ function RecentCard({ posts }) {
     <div className=" shadow-lg bg-black/10  rounded-lg px-8 py-8 mb-8 mx-auto w-full  sm:px-4 lg:px-2 ">
         <Carousel infinite customLeftArrow={customLeftArrow} customRightArrow={customRightArrow} responsive={responsive} itemClass=" sm:px-4 lg:px-6">
             {posts.map((post) => (
-                <PostSquare post={post.node} key={post.slug} />
+                <PostSquare post={post.data} key={post._id} />
             ))}
         </Carousel>
     </div>
