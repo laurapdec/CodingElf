@@ -4,7 +4,6 @@ const graphqlAPI = process.env.NEXT_PUB_GRAPHCMS_ENDPOINT;
 const graphcmsToken = process.env.GRAPHCMS_TOKEN;
 
 export default async (req,res) => {
-    console.log(req.body)
     const mutation = gql`
     mutation AddLike ( $likes:Int! , $slug:String!) {
       updatePost(

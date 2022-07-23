@@ -62,8 +62,6 @@ export async function getTags(){
   return result;
 };
 
-
-
 export async function getRecentPosts(){
   const query =  `*[_type=="post"]{
     _id,
@@ -82,7 +80,7 @@ export async function getRecentPosts(){
       },
       "slug":slug.current
     }
-  }    | order(_createdAt asc)`;
+  }    | order(_createdAt desc)`;
   const result = await client.fetch( query );
   
   return result;
@@ -90,7 +88,7 @@ export async function getRecentPosts(){
 
 
 export async function getPostsFromTag(tagslug){
-  const query =  `*[_type=="post" && categories.slug==${tagslug}]{
+  const query =  `*[_type=="post" && "${tagslug}" in categories[]->slug.current]{
     _id,
     "data":{
       title,
@@ -107,8 +105,34 @@ export async function getPostsFromTag(tagslug){
       },
       "slug":slug.current
     }
-  } `;
+  }  `;
   const result = await client.fetch( query );
+  
+  return result;
+};
+
+
+export async function getSimilarPosts(tagslug,postslug){
+  const query =  `*[_type=="post" && "${tagslug}" in categories[]->slug.current || !slug=="${postslug}"]{
+    _id,
+    "data":{
+      title,
+      "author":{
+         "name":author->name,
+        "image":author->image.asset->url,
+      },
+      "image":mainImage.asset->url,
+      body,
+      likes,
+      categories[]->{
+      title,
+      "slug":slug.current
+      },
+      "slug":slug.current
+    }
+  }  `;
+  const result = await client.fetch( query );
+  console.log(result)
   
   return result;
 };
