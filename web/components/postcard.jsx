@@ -5,8 +5,7 @@ import { Likes, ptComponents, Tag } from "../lib";
 import Image from "next/image";
 import {PortableText} from '@portabletext/react';
 
-const PostCard = ({ post , tagon="" }) => {
-  console.log(post.categories)
+const PostCard = ({ post , tagon="" }) => { 
   return (
     <div className="bg-[#fffae2] shadow-lg rounded-lg p-0 lg: p-8 pb-12 mb-8">
       <div className="relative overflow-hidden shadow-md pb-80 mb-6">

@@ -10,7 +10,7 @@ const Search = ({tags, selectedtag, tagposts,recentposts}) => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="col-span-1 lg:col-span-8">
           {tagposts.map((post) => (
-          <PostCard post={post.node} tagon={selectedtag} key={post.title} />
+          <PostCard post={post.data} tagon={selectedtag} key={post.title} />
           ))}
         </div>
         <div className="col-span-1 lg:col-span-4">
@@ -41,6 +41,7 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths (){
     const tags = (await getTags()) || [];
+    console.log(tags)
     return{
         paths:tags.map((tag) => ({params:tag})),
         fallback: false

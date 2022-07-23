@@ -55,7 +55,7 @@ export async function getTags(){
   const query =  `*[_type=="category"]{
     _id,
     title,
-    slug
+    "slug":slug.current
   }`;
   const result = await client.fetch( query );
   
@@ -83,6 +83,31 @@ export async function getRecentPosts(){
       "slug":slug.current
     }
   }    | order(_createdAt asc)`;
+  const result = await client.fetch( query );
+  
+  return result;
+};
+
+
+export async function getPostsFromTag(tagslug){
+  const query =  `*[_type=="post" && categories.slug==${tagslug}]{
+    _id,
+    "data":{
+      title,
+      "author":{
+         "name":author->name,
+        "image":author->image.asset->url,
+      },
+      "image":mainImage.asset->url,
+      body,
+      likes,
+      categories[]->{
+      title,
+      "slug":slug.current
+      },
+      "slug":slug.current
+    }
+  } `;
   const result = await client.fetch( query );
   
   return result;
