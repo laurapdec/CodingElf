@@ -9,7 +9,7 @@ function SimilarPosts({posts}) {
       </h2>
       <div className=" block">
           {posts.map((post) => (
-                <SummPost post={post.node} key={post.title} />
+                <SummPost post={post.data} key={post._id} />
           ))}
       </div>
     </div>

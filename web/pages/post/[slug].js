@@ -38,18 +38,17 @@ const Article = ({post, similarposts}) => {
 export default Article;
 
 export async function getStaticProps({ params }) {
-  const data = [];
-  const posts = [];
+  const data = (await getPostData(params.slug)) ||[];
+  const posts = (await getSimilarPosts(data.data.categories[0].slug,params.slug))||  [];
 
   
   return {
-    props: { post: data, similarposts : posts},
+    props: { post: data.data, similarposts : posts},
   };
 }
 
 export async function getStaticPaths (){
     const posts = (await getPosts()) || [];
-    console.log(posts)
     return{
         paths:posts.map((post) => ({params:post.data})),
         fallback: false

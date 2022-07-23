@@ -113,7 +113,32 @@ export async function getPostsFromTag(tagslug){
 
 
 export async function getSimilarPosts(tagslug,postslug){
-  const query =  `*[_type=="post" && "${tagslug}" in categories[]->slug.current || !slug=="${postslug}"]{
+  const query =  `*[_type=="post" && "${tagslug}" in categories[]->slug.current && !(slug.current=="${postslug}") ]{
+    _id,
+    "data":{
+      title,
+      "author":{
+         "name":author->name,
+         "bio":author->bio,
+        "image":author->image.asset->url,
+      },
+      "image":mainImage.asset->url,
+      body,
+      likes,
+      categories[]->{
+      title,
+      "slug":slug.current
+      },
+      "slug":slug.current
+    }
+  }  `;
+  const result = await client.fetch( query );
+  return result;
+};
+
+
+export async function getPostData(slug){
+  const query =  `*[_type=="post" && slug.current=="${slug}"]{
     _id,
     "data":{
       title,
@@ -132,7 +157,6 @@ export async function getSimilarPosts(tagslug,postslug){
     }
   }  `;
   const result = await client.fetch( query );
-  console.log(result)
   
-  return result;
+  return result[0];
 };

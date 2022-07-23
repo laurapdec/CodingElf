@@ -10,7 +10,6 @@ function Likes({likesinit = 0, generalstyle="", heartstyle="",textstyle ="",size
 
   const onSubmit = async () =>{
     setLikesQtd(lik+1);
-    console.log(lik);
     var likes =lik +1;
 
     await fetch(`/api/likes/add`, {

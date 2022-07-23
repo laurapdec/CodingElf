@@ -202,7 +202,6 @@ export const getPostsFromTag = async (tagslug) => {
 };
 
 export const addLike = async ({slug}) => {
-  console.log(slug)
   if (slug===undefined){
     return "#"
   }
