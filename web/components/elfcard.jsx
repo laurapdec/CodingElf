@@ -1,5 +1,7 @@
 import React from 'react';
 import Image from "next/image";
+import {PortableText} from '@portabletext/react';
+import { ptComponents } from '../lib';
 
 function ElfCard({author}) {
   return (
@@ -8,7 +10,7 @@ function ElfCard({author}) {
             <Image
                 className="align-middle  rounded-full"
                 alt={author.name}
-                src={author.picture.url}
+                src={author.image}
                 layout="responsive"
                 width="50px"
                 height="50px"
@@ -18,7 +20,10 @@ function ElfCard({author}) {
             Hi, I&apos;m <strong>{author.name}</strong>
         </div>    
         <div className='px-2 mb-4 md:px-8  '>
-            {author.biography}
+            <PortableText
+                value={author.bio}
+                components={ptComponents}
+            />
         </div>    
     </div>
   )

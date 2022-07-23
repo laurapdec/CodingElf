@@ -9,7 +9,7 @@ module.exports = {
   },
 
   images: {
-    domains: ['assets.vercel.com','media.graphassets.com'],
+    domains: ['assets.vercel.com','media.graphassets.com','cdn.sanity.io'],
   },
 
   webpack(config) {

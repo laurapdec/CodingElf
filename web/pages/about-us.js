@@ -1,11 +1,10 @@
 import React from 'react';
 import Head from "next/head";
 import {CompanyCard, ElfCard,ContactUs} from '../components'
-import { getAuthors } from "../services";
+import {  getAuthors, getCompanyBio } from "../services";
 import Link from 'next/link';
-import client from '../client'
 
-function about_us({authors}) {
+function about_us({authors,companybio}) {
   return (
     <>
     <div className="container mx-auto px-10 mb-8">
@@ -13,10 +12,12 @@ function about_us({authors}) {
         <title>Os elfos</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <CompanyCard />
+      <CompanyCard text={companybio}/>
       
       <div className="grid grid-col-1 lg:grid-cols-3  gap-9">
-        {authors}
+      {authors.map((author) => (
+          <ElfCard author={author.data} key={author._id}  />
+        ))}
       </div>
     </div>
 
@@ -30,12 +31,9 @@ export default about_us
 
 export async function getStaticProps() {
   const authors = (await getAuthors()) || [];
-  const auts = await client.fetch(
-    `*[_type == "author" ]{name,bio}`
-  )
-  console.log(auts);
+  const companybio = (await getCompanyBio()) || [];
 
   return {
-    props: { auts },
+    props: {authors,companybio} ,
   };
 }
