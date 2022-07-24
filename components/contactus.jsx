@@ -5,7 +5,7 @@ import { Github, Instagram, Mail, Twitter , ContactUsForm } from '../lib';
 function ContacUs() {
   return (
     <div className='w-full bg-[#fffae2] block p-10'>
-      <div className='grid grid-cols-3'>
+      <div className='grid grid-cols-1 md:grid-cols-3'>
         <h2 className="col-span-2 text-xl font-bold align-baseline text-center">Entre em contato</h2>
         <ContactUsForm/>
 
