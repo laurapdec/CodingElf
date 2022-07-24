@@ -172,3 +172,38 @@ export async function addLike(id) {
 
   client.patch(id);
 }
+
+
+export async function addComment(data) {
+  const doc = {
+    _type:'comment',
+    name: data.name,
+    email:data.email,
+    message:data.comment,
+    rate:0,
+    post:{
+      _type:'reference',
+      _ref:data.postid }
+  };
+
+  client.create(doc).then((res) => {
+    console.log(`Thanks for commenting`);
+  });
+
+}
+
+
+
+export async function getComments(id) {
+  const query = `*[_type=="comment" && post._ref== "${id}"]{
+    _id,
+    "data":{
+      _createdAt,
+      name,
+      message,
+      rate
+    }
+  }`;
+  const result = (await client.fetch(query))||[];
+  return result;
+}
