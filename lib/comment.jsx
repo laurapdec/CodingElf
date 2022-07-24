@@ -2,7 +2,6 @@ import React from 'react'
 import moment from "moment";
 
 function Comment({comment}) {
-  console.log(comment);
   return (
     <div className=' flex  p-3 gap-3 border-b border-gray-400  flex-wrap'>
         <h1 className="transition duration-300 text-gray-800 mb-2 cursor-pointer hover:text-[#d0877a] font-semibold">
