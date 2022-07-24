@@ -6,7 +6,7 @@ function ContacUs() {
   return (
     <div className='w-full bg-[#fffae2] block p-10'>
       <div className='grid grid-cols-3'>
-        <h2 className="col-span-2 text-xl font-bold align-baseline text-center">Contact Us</h2>
+        <h2 className="col-span-2 text-xl font-bold align-baseline text-center">Entre em contato</h2>
         <ContactUsForm/>
 
         <div className='grid grid-cols-4  p-8 pb-12 mx-auto lg:p-8'  >

@@ -5,7 +5,7 @@ import elfoPic from "../public/elf_bgwhite.svg";
 import { SearchBar } from "../lib";
 
 const categories = [
-  { name: "About Us", slug: "about-us" },
+  { name: "Sobre nós", slug: "about-us" },
   { name: "Home", slug: "" },
 ];
 

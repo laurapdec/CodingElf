@@ -1,32 +1,26 @@
-import { GraphQLClient, gql } from "graphql-request";
+const sanityAPI = process.env.SANITY_API_LINK;
+const sanityKey = process.env.GRAPHCMS_TOKEN;
 
-const graphqlAPI = process.env.NEXT_PUB_GRAPHCMS_ENDPOINT;
-const graphcmsToken = process.env.GRAPHCMS_TOKEN;
-
-export default async (req,res) => {
-    const mutation = gql`
-    mutation AddLike ( $likes:Int! , $slug:String!) {
-      updatePost(
-        where: { slug: $slug }
-        data: {likes:  $likes}
-      ) {
-        id
+export default function addLike(likes,slug) {
+    const mutations = [{
+      createOrReplace: {
+        slug: {current: slug},
+        _type: 'post',
+        likes: likes
       }
-      publishPost(where: {slug: $slug}) {
-        likes
-      }
-    }  
-  `;
+    }]
 
-  const client = new GraphQLClient(graphqlAPI, {
+  fetch(sanityAPI, {
+    method: 'post',
     headers: {
-      Authorization: `Bearer ${graphcmsToken}`,
+      'Content-type': 'application/json',
+      Authorization: `Bearer ${sanityKey}`
     },
-  });
+    body: JSON.stringify({mutations})
+  })
+    .then(response => response.json())
+    .then(result => console.log(result))
+    .catch(error => console.error(error))
 
-
-  const result = await client.request(mutation, req.body);
-
-  res.status(200).json({ success: true });
 
 }

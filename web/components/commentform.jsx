@@ -59,7 +59,7 @@ const CommentForm = ({slug}) => {
           name="email"
           className="bg-[#e6e1cb] px-4 py-2  outline-none w-full rounded-lg focus:ring-2 focus:ring-[#b3af9e] text-" />
         </div>
-        {error && <p className="text-xs pb-4 text-red-500">All fields are required.</p>}
+        {error && <p className="text-xs pb-4 text-red-500">Todos campos são obrigatórios.</p>}
         <div>
           <button 
           type="button" 

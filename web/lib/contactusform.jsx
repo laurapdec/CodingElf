@@ -12,14 +12,14 @@ function ContactUsForm() {
       
         <div className="grid grid-cols-1 gap-4 mb-4">
           <textarea 
-          placeholder="Message"
+          placeholder="Mensagem"
           name="comment"
           className="bg-[#e6e1cb] p-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-[#b3af9e] text-" />
         </div>
         <div className="grid grid-cols-1 gap-4 mb-4 lg:grid-cols-2">
           <input 
           type="text"
-          placeholder="Name"
+          placeholder="Nome"
           name="name"
           className="bg-[#e6e1cb] px-4 py-2 outline-none w-full rounded-lg focus:ring-2 focus:ring-[#b3af9e] text-" />
 
@@ -29,14 +29,14 @@ function ContactUsForm() {
           name="email"
           className="bg-[#e6e1cb] px-4 py-2  outline-none w-full rounded-lg focus:ring-2 focus:ring-[#b3af9e] text-" />
         </div>
-        {error && <p className="text-xs pb-4 text-red-500">All fields are required.</p>}
+        {error && <p className="text-xs pb-4 text-red-500">Todos campos são obrigatórios.</p>}
         <div>
           <button 
           type="button" 
           className="transition w-full durarion-500 ease bg-[#b25d56] text-lg font-bold text-slate-200 p-2 rounded-full hover:bg-[#8e4a45]">
-            Submit
+            Enviar
           </button>
-          {showSuccessMessage && <span className="text-xl float-right font-semibold text-green-600 mt-3 "> Comment Submitted!</span>}
+          {showSuccessMessage && <span className="text-xl float-right font-semibold text-green-600 mt-3 "> Recebemos sua mensagem!</span>}
         </div>
     </div>
   );

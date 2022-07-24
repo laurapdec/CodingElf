@@ -19,7 +19,7 @@ const Footer = () => {
               />
             </div>
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-              Coding // Elf
+              Coding \\ Elf
             </span>
           </a>
         </div>
@@ -36,7 +36,7 @@ const Footer = () => {
               </li>
               <li>
                 <a href="https://codingelf.com/about-us" className="hover:underline">
-                  About Us
+                  Sobre nós
                 </a>
               </li>
             </ul>
@@ -49,12 +49,12 @@ const Footer = () => {
             <ul className="text-gray-600 dark:text-gray-400">
               <li className="mb-4">
                 <a href="#" className="hover:underline">
-                  Privacy Policy
+                  Política de Privacidade
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:underline">
-                  Terms &amp; Conditions
+                  Termos &amp; Condições
                 </a>
               </li>
             </ul>

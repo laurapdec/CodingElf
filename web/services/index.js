@@ -1,5 +1,8 @@
 import client from '../client'
 
+const sanityAPI = process.env.SANITY_API_LINK;
+const sanityKey = process.env.GRAPHCMS_TOKEN;
+
 export async function getAuthors(){
   const query =  `*[_type=="author"]{
       "data":{
@@ -159,4 +162,26 @@ export async function getPostData(slug){
   const result = await client.fetch( query );
   
   return result[0];
+};
+
+export async function addLike(likes,slug) {
+  const mutations = [{
+    createOrReplace: {
+      slug: {current: slug},
+      _type: 'post',
+      likes: likes
+    }
+  }]
+
+  fetch(sanityAPI, {
+    method: 'post',
+    headers: {
+      'Content-type': 'application/json',
+      Authorization: `Bearer ${sanityKey}`
+    },
+    body: JSON.stringify({mutations})
+  })
+    .then(response => response.json())
+    .then(result => console.log(result))
+    .catch(error => console.error(error))
 };

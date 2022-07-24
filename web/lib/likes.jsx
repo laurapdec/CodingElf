@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import {addLike} from "../services"
 
 function Likes({likesinit = 0, generalstyle="", heartstyle="",textstyle ="",size="24px",slug=""}) {
   var heartstylefinal = heartstyle + " inline cursor-pointer";
@@ -12,13 +13,7 @@ function Likes({likesinit = 0, generalstyle="", heartstyle="",textstyle ="",size
     setLikesQtd(lik+1);
     var likes =lik +1;
 
-    await fetch(`/api/likes/add`, {
-      method: "POST",
-      body: JSON.stringify({ likes , slug }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    addLike(likes,slug)
 
   };
 
