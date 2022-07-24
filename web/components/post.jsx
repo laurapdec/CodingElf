@@ -6,7 +6,6 @@ import { Likes, ptComponents } from '../lib';
 import {PortableText} from '@portabletext/react';
 
 const Post = ({post}) => {
-  console.log(post)
   return (
     <div className="bg-[#fffae2] shadow-lg rounded-lg p-8 pb-12 mb-8 w-full mx-auto  md:w-5/6  lg:w-full lg:mx-0 lg:p-8">
       <div className="relative overflow-hidden shadow-md pb-80 mb-6">

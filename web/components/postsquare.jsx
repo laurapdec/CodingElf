@@ -18,7 +18,7 @@ const PostSquare = ({ post }) => {
           generalstyle={"flex absolute self-end top-5 right-5"}
           heartstyle={"fill-white/50"}
           textstyle={"text-white/50"}
-          slug={post.slug}
+          id={post._id}
         />
         <p className="text-white mb-4 text-shadow font-semibold text-xs">
           {moment(post.createdAt).format("MMM DD, YYYY")}

@@ -49,7 +49,7 @@ const PostCard = ({ post , tagon="" }) => {
           </svg>
           <span>{moment(post.createdAt).format("MMM DD, YYYY")}</span>
         </div>
-        <Likes likesinit={post.likes}  generalstyle={"ml-8"} slug={post.slug}/>
+        <Likes likesinit={post.likes}  generalstyle={"ml-8"} id={post._id}/>
         
       </div>
       <div className="mb-8">

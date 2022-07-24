@@ -19,7 +19,7 @@ export default function addLike(likes,slug) {
     body: JSON.stringify({mutations})
   })
     .then(response => response.json())
-    .then(result => console.log(result))
+    .then(result => (result))
     .catch(error => console.error(error))
 
 

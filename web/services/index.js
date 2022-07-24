@@ -1,10 +1,10 @@
-import client from '../client'
+import client from "../client";
 
 const sanityAPI = process.env.SANITY_API_LINK;
 const sanityKey = process.env.GRAPHCMS_TOKEN;
 
-export async function getAuthors(){
-  const query =  `*[_type=="author"]{
+export async function getAuthors() {
+  const query = `*[_type=="author"]{
       "data":{
         name,
         bio,
@@ -12,24 +12,22 @@ export async function getAuthors(){
       },
       _id
     } `;
-  const result = await client.fetch( query );
-  
+  const result = await client.fetch(query);
+
   return result;
-};
+}
 
-
-export async function getCompanyBio(){
-  const query =  `*[_type=="company"]{
+export async function getCompanyBio() {
+  const query = `*[_type=="company"]{
       body
     } `;
-  const result = await client.fetch( query );
-  
+  const result = await client.fetch(query);
+
   return result[0];
-};
+}
 
-
-export async function getPosts(){
-  const query =  `*[_type=="post"]{
+export async function getPosts() {
+  const query = `*[_type=="post"]{
     _id,
     "data":{
       title,
@@ -47,26 +45,24 @@ export async function getPosts(){
       "slug":slug.current
     }
   }   `;
-  const result = await client.fetch( query );
-  
+  const result = await client.fetch(query);
+
   return result;
-};
+}
 
-
-
-export async function getTags(){
-  const query =  `*[_type=="category"]{
+export async function getTags() {
+  const query = `*[_type=="category"]{
     _id,
     title,
     "slug":slug.current
   }`;
-  const result = await client.fetch( query );
-  
-  return result;
-};
+  const result = await client.fetch(query);
 
-export async function getRecentPosts(){
-  const query =  `*[_type=="post"]{
+  return result;
+}
+
+export async function getRecentPosts() {
+  const query = `*[_type=="post"]{
     _id,
     "data":{
       title,
@@ -84,14 +80,13 @@ export async function getRecentPosts(){
       "slug":slug.current
     }
   }    | order(_createdAt desc)`;
-  const result = await client.fetch( query );
-  
+  const result = await client.fetch(query);
+
   return result;
-};
+}
 
-
-export async function getPostsFromTag(tagslug){
-  const query =  `*[_type=="post" && "${tagslug}" in categories[]->slug.current]{
+export async function getPostsFromTag(tagslug) {
+  const query = `*[_type=="post" && "${tagslug}" in categories[]->slug.current]{
     _id,
     "data":{
       title,
@@ -109,14 +104,13 @@ export async function getPostsFromTag(tagslug){
       "slug":slug.current
     }
   }  `;
-  const result = await client.fetch( query );
-  
+  const result = await client.fetch(query);
+
   return result;
-};
+}
 
-
-export async function getSimilarPosts(tagslug,postslug){
-  const query =  `*[_type=="post" && "${tagslug}" in categories[]->slug.current && !(slug.current=="${postslug}") ]{
+export async function getSimilarPosts(tagslug, postslug) {
+  const query = `*[_type=="post" && "${tagslug}" in categories[]->slug.current && !(slug.current=="${postslug}") ]{
     _id,
     "data":{
       title,
@@ -135,16 +129,16 @@ export async function getSimilarPosts(tagslug,postslug){
       "slug":slug.current
     }
   }  `;
-  const result = await client.fetch( query );
+  const result = await client.fetch(query);
   return result;
-};
+}
 
-
-export async function getPostData(slug){
-  const query =  `*[_type=="post" && slug.current=="${slug}"]{
+export async function getPostData(slug) {
+  const query = `*[_type=="post" && slug.current=="${slug}"]{
     _id,
     "data":{
       title,
+      _id,
       "author":{
          "name":author->name,
         "image":author->image.asset->url,
@@ -159,29 +153,23 @@ export async function getPostData(slug){
       "slug":slug.current
     }
   }  `;
-  const result = await client.fetch( query );
-  
+  const result = await client.fetch(query);
+
   return result[0];
-};
+}
 
-export async function addLike(likes,slug) {
-  const mutations = [{
-    createOrReplace: {
-      slug: {current: slug},
-      _type: 'post',
-      likes: likes
-    }
-  }]
+export async function addLike(likes, id) {
+  console.log(id)
+  const doc = {
+    "patch":{
+      "id":id,
+      "set": { "likes": likes }
+   }
+  };
 
-  fetch(sanityAPI, {
-    method: 'post',
-    headers: {
-      'Content-type': 'application/json',
-      Authorization: `Bearer ${sanityKey}`
-    },
-    body: JSON.stringify({mutations})
-  })
-    .then(response => response.json())
-    .then(result => console.log(result))
-    .catch(error => console.error(error))
-};
+  client.mutate(id,doc).then((res) => {
+    console.log(`Thanks for liking`);
+  });
+
+  client.patch(id);
+}

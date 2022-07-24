@@ -12,7 +12,7 @@ function SummPost({post}) {
             <Link href={`/post/${post.slug}`}>{post.title}</Link>
         </h1>
         <div className='grid grid-cols-2 whitespace-nowrap w-full content-end '>
-          <Likes likes={post.likes} />
+          <Likes likes={post.likes} id={post._id}/>
           <p className='text-end   mb-1'>{moment(post.createdAt).format("MMM DD, YYYY")}</p>
         </div>
     </div>
