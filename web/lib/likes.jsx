@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import {addLike} from "../services"
 
-function Likes({likesinit = 0, id, generalstyle="", heartstyle="",textstyle ="",size="24px"}) {
+function Likes({id, likesinit = 0, notClickedYet = true, generalstyle="", heartstyle="",textstyle ="",size="24px"}) {
   var heartstylefinal = heartstyle + " inline cursor-pointer";
   const [lik, setLikesQtd] = useState(likesinit);
 
@@ -9,16 +9,17 @@ function Likes({likesinit = 0, id, generalstyle="", heartstyle="",textstyle ="",
     var heartstylefinal = " inline  fill-gray-600  hover:fill-pink-400 transition ease duration-300 cursor-pointer";
   }
 
-  const onSubmit = async () =>{
-    setLikesQtd(lik+1);
-    var likes =lik +1;
-
-    addLike(likes,id)
+  const onSubmit =event =>{
+    if (notClickedYet){
+      setLikesQtd(lik+1);
+      addLike(id);
+      event.currentTarget.disabled=true;
+    }
 
   };
 
   return (
-    <button className={generalstyle} onClick={onSubmit}>
+    <button className={generalstyle} id="LikeButton" onClick={onSubmit}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className={heartstylefinal}

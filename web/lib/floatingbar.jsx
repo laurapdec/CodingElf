@@ -5,7 +5,7 @@ import Likes from './likes'
 import Mail from './mail'
 import Twitter from './twitter'
 
-function FloatingBar({likes,id}) {
+function FloatingBar({likes,id=""}) {
   if (likes != undefined) {
     return (
       <>

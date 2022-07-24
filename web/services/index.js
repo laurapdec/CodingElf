@@ -158,16 +158,15 @@ export async function getPostData(slug) {
   return result[0];
 }
 
-export async function addLike(likes, id) {
-  console.log(id)
+export async function addLike(id) {
   const doc = {
     "patch":{
-      "id":id,
-      "set": { "likes": likes }
+      id:id,
+      "inc": { "likes": 1 }
    }
   };
 
-  client.mutate(id,doc).then((res) => {
+  client.mutate(doc).then((res) => {
     console.log(`Thanks for liking`);
   });
 

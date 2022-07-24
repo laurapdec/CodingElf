@@ -28,7 +28,7 @@ const Article = ({post, similarposts}) => {
             <ElfCard author={post.author}/>
             <SimilarPosts posts={similarposts} />
           </div>
-          <FloatingBar likes={post.likes} id={post.id}/>
+          <FloatingBar likes={post.likes} id={post._id}/>
         </div>
       </div>
     </div>
