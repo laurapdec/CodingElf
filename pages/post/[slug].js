@@ -1,5 +1,5 @@
 import React from "react";
-import { getSimilarPosts, getPosts , getPostData } from "../../services";
+import { getSimilarPosts, getPosts , getPostData, getComments } from "../../services";
 import {
   Post,
   Comments,
@@ -10,7 +10,7 @@ import {
 import { FloatingBar } from "../../lib";
 import Head from "next/head";
 
-const Article = ({post, similarposts}) => {
+const Article = ({post, similarposts,comments}) => {
   return (
     <>
     <Head>
@@ -21,8 +21,8 @@ const Article = ({post, similarposts}) => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="col-span-1 lg:col-span-8">
           <Post post={post}/>
-          <CommentForm slug={post.slug} />
-          <Comments slug={post.slug} />
+          <CommentForm id={post._id} />
+          <Comments comments={comments} />
         </div>
         <div className="col-span-1 lg:col-span-4">
           <div className="relative lg:sticky">
@@ -42,10 +42,9 @@ export default Article;
 export async function getStaticProps({ params }) {
   const data = (await getPostData(params.slug)) ||[];
   const posts = (await getSimilarPosts(data.data.categories[0].slug,params.slug))||  [];
-
-  
+  const comments = (await getComments(data._id))||[];
   return {
-    props: { post: data.data, similarposts : posts},
+    props: { post: data.data, similarposts : posts,comments:comments},
   };
 }
 

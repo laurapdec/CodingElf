@@ -7,10 +7,12 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.6.2",
     "@portabletext/react": "^1.0.6",
     "@sanity/client": "^3.3.2",
     "@trendyol-js/react-carousel": "^3.0.0",
     "builtin-modules": "^3.3.0",
+    "emailjs": "^4.0.0",
     "esbuild": "^0.14.47",
     "fs": "^0.0.1-security",
     "mdx-bundler": "^9.0.1",

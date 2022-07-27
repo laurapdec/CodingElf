@@ -1,11 +1,12 @@
 import React ,{ useState} from "react";
+import { addComment } from "../services";
 
 
-const CommentForm = ({slug}) => {
+const CommentForm = ({id}) => {
 
   const [error,setError] = useState(false);
   const [showSuccessMessage,setShowSuccessMessage] = useState(false);
-  const [formData,setFormData] = useState({name:null,email:null,comment:undefined});
+  const [formData,setFormData] = useState({name:null,email:null,comment:undefined,postid:id});
   
 
   const onInputChange = (e) => {
@@ -26,9 +27,10 @@ const CommentForm = ({slug}) => {
 
 
   const handleCommentSubmission = () =>{
-      setError(false);
-      setShowSuccessMessage(true);
-      };
+    addComment(formData)
+    setError(false);
+    setShowSuccessMessage(true);
+  };
 
 
   return (
