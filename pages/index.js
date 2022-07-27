@@ -9,6 +9,7 @@ export default function Home({ posts ,tags , recentposts}) {
     <div className="container mx-auto px-10 mb-8">
       <Head>
         <title>Coding Elf</title>
+        <meta name="description" content="Um site de programação desde desenvolvimento web até data science. Estamos criando uma comunidade, venha fazer parte."/>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <RecentCard posts={recentposts}/>

@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import {addLike} from "../services"
 
-function Likes({id, likesinit = 0, notClickedYet = true, generalstyle="", heartstyle="",textstyle ="",size="24px"}) {
+function Likes({id, likesinit = 0, notClickedYet = true, generalstyle="inline-flex items-center", heartstyle="",textstyle ="",size="24px"}) {
   var heartstylefinal = heartstyle + " inline cursor-pointer";
   const [lik, setLikesQtd] = useState(likesinit);
 

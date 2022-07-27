@@ -10,7 +10,7 @@ function FloatingBar({likes,id=""}) {
     return (
       <>
         <div className='hidden md:block fixed bottom-5 right-5  rounded-full '>
-            <div className='bg-red-500 my-2 rounded-full w-16 h-16 justify-center flex items-center fill-white/80 text-white/80 cursor-pointer hover:bg-red-700'><Likes likesinit={likes} size={"30px"} heartstyle={"ml-2"} id={id}/></div>
+            <div className='bg-red-500 my-2 rounded-full w-16 h-16 justify-center flex items-center fill-white/80 text-white/80 cursor-pointer hover:bg-red-700 '><Likes likesinit={likes} size={"30px"} heartstyle={"ml-2"} id={id}/></div>
             <div className='bg-pink-500 my-2 rounded-full w-16 h-16 justify-center flex items-center fill-white/80 text-white/80 cursor-pointer hover:bg-pink-700'><Instagram size={"30px"} styleoptions={"mx-1"}/></div>
             <div className='bg-blue-500 my-2 rounded-full w-16 h-16 justify-center flex items-center fill-white/80 text-white/80 cursor-pointer hover:bg-blue-700'><Twitter size={"30px"} styleoptions={"mx-1"}/></div>
             <div className='bg-gray-500 my-2 rounded-full w-16 h-16 justify-center flex items-center fill-white/80 text-white/80 cursor-pointer hover:bg-gray-700'><Github size={"30px"} styleoptions={"mx-1"}/></div>
