@@ -12,7 +12,8 @@
     "@sanity/default-layout",
     "@sanity/default-login",
     "@sanity/desk-tool",
-    "vercel-deploy"
+    "vercel-deploy",
+    "@sanity/dashboard"
   ],
   "env": {
     "development": {
