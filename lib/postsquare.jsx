@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 import Link from "next/link";
-import { Tag, Likes } from "../lib";
+import { Tag, Likes } from ".";
 import Image from "next/image";
 
 const PostSquare = ({ post }) => {

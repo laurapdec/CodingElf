@@ -10,7 +10,6 @@ function Comments({comments}) {
       {comments.map((comment) => (
         <Comment comment={comment.data} key={comment._id} />
       ))}
-      <div className=" flex justify-around"></div>
     </div>
   )
 }

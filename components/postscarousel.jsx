@@ -1,5 +1,5 @@
 import React from 'react';
-import {PostSquare} from './';
+import {PostSquare} from '../lib';
 import Carousel from 'react-multi-carousel';
 
 import 'react-multi-carousel/lib/styles.css';
@@ -24,7 +24,7 @@ const responsive = {
   };
   
 
-function RecentCard({ posts }) {
+function PostsCarousel({ posts }) {
   
 
   const customLeftArrow = (
@@ -54,4 +54,4 @@ function RecentCard({ posts }) {
   )
 }
 
-export default RecentCard
+export default PostsCarousel

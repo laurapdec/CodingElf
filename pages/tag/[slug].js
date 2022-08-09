@@ -1,5 +1,5 @@
 import React from "react";
-import { Categories, PostCard, SocialMediaWidget,RecentCard } from "../../components";
+import { Categories, PostCard, SocialMediaWidget, PostsCarousel } from "../../components";
 import { getPostsFromTag, getTags , getRecentPosts} from "../../services";
 import { FloatingBar } from "../../lib";
 import Head from "next/head";
@@ -12,7 +12,7 @@ const Search = ({tags, selectedtag, tagposts,recentposts}) => {
       <meta name="description" content='Aqui estão os artigos publicados sobre {tag} até agora.'/>
     </Head>
       <div className="container mx-auto px-10 mb-8">
-        <RecentCard posts={recentposts}/>
+        <PostsCarousel posts={recentposts}/>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="col-span-1 lg:col-span-8">
             {tagposts.map((post) => (

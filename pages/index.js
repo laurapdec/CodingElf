@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { PostCard, SocialMediaWidget, Categories , RecentCard } from "../components";
+import { PostCard, SocialMediaWidget, Categories , PostsCarousel } from "../components";
 import { FloatingBar  } from "../lib";
 import { getPosts, getTags,getRecentPosts } from "../services";
 import React from "react";
@@ -12,7 +12,7 @@ export default function Home({ posts ,tags , recentposts}) {
         <meta name="description" content="Um site de programação desde desenvolvimento web até data science. Estamos criando uma comunidade, venha fazer parte."/>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <RecentCard posts={recentposts}/>
+      <PostsCarousel posts={recentposts}/>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-8 col-span-1">
         
