@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import moment from 'moment'
 import Image from "next/image";
-import { Likes, ptComponents } from '../lib';
+import { Likes, ptComponents, Tag } from '../lib';
 import {PortableText} from '@portabletext/react';
 
 const Post = ({post}) => {
@@ -20,7 +20,7 @@ const Post = ({post}) => {
         <Link href={`/post/${post.slug}`}>{post.title}</Link>
       </h1>
       
-      <div className="block lg:flex text-center items-center justify-center mb-8 w-full">
+      <div className="block lg:flex text-center items-center justify-around mb-8 w-full">
         <div className="font-medium text-gray-600">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -37,6 +37,11 @@ const Post = ({post}) => {
             />
           </svg>
           <span>{moment(post.createdAt).format("MMM DD, YYYY")}</span>
+        </div>
+        <div className="mt-4 lg:mt-0">
+          {post.categories.map((tag) => {
+            return <Tag tag={tag} key={tag.slug} />
+          })}
         </div>
       
       </div>
