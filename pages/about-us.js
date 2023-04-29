@@ -15,7 +15,7 @@ function about_us({authors,companybio}) {
       </Head>
       <CompanyCard text={companybio}/>
       
-      <div className="grid grid-col-1 lg:grid-cols-3  gap-9">
+      <div className="grid grid-col-1 lg:grid-cols-4  gap-9">
       {authors.map((author) => (
           <ElfCard author={author.data} key={author._id}  />
         ))}

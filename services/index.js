@@ -173,7 +173,6 @@ export async function addLike(id) {
   client.patch(id);
 }
 
-
 export async function addComment(data) {
   const doc = {
     _type:'comment',
@@ -191,8 +190,6 @@ export async function addComment(data) {
   });
 
 }
-
-
 
 export async function getComments(id) {
   const query = `*[_type=="comment" && post._ref== "${id}"]{

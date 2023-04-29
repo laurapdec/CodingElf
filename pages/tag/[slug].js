@@ -37,11 +37,11 @@ const Search = ({tags, selectedtag, tagposts,recentposts}) => {
 export default Search;
   
 export async function getStaticProps({ params }) {
-  const postsdata = (await getPostsFromTag(params.slug)) || [];
-  const tagsdata = (await getTags()) || [];
+  const tagposts = (await getPostsFromTag(params.slug)) || [];
+  const tags = (await getTags()) || [];
   const recentposts = (await getRecentPosts()) || [];
   return {
-    props: { tagposts: postsdata, selectedtag : {'slug': params.slug,'title':params.slug}, tags: tagsdata ,recentposts: recentposts},
+    props: { tagposts: tagposts, selectedtag : {'slug': params.slug,'title':params.slug}, tags: tags ,recentposts: recentposts},
   };
 }
 
