@@ -144,6 +144,7 @@ export async function getPostData(slug) {
         "image":author->image.asset->url,
       },
       "image":mainImage.asset->url,
+      description,
       body,
       likes,
       categories[]->{

@@ -9,7 +9,7 @@ export default function Home({ posts ,tags , recentposts}) {
     <div className="container mx-auto px-10 mb-8">
       <Head>
         <title>Coding Elf</title>
-        <meta name="description" content="Um site de programação desde desenvolvimento web até data science. Estamos criando uma comunidade, venha fazer parte."/>
+        <meta name="description" content="Aprenda sobre programação, data science, machine learning e desenvolvimento web com a gente no Coding Elf. Estamos criando uma comunidade, venha fazer parte."/>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PostsCarousel posts={recentposts}/>

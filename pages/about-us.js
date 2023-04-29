@@ -10,7 +10,7 @@ function about_us({authors,companybio}) {
     <div className="container mx-auto px-10 mb-8">
       <Head>
         <title>Os elfos</title>
-        <meta name="description" content='Conheça a equipe por trás do Coding Elf, blog brasileiro de programação com o intuito de democratizar a tecnologia'/>
+        <meta name="description" content='Conheça a equipe por trás do Coding Elf, blog brasileiro de programação, data science e diversos outros temas, com o intuito de democratizar a tecnologia'/>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <CompanyCard text={companybio}/>
