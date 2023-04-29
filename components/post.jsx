@@ -19,6 +19,7 @@ const Post = ({post}) => {
       <h1 className="transition duration-300 text-center text-gray-800 mb-8 cursor-pointer hover:text-[#d0877a] text-3xl font-semibold">
         <Link href={`/post/${post.slug}`}>{post.title}</Link>
       </h1>
+      
       <div className="block lg:flex text-center items-center justify-center mb-8 w-full">
         <div className="font-medium text-gray-600">
           <svg

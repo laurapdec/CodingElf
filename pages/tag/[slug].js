@@ -1,7 +1,7 @@
 import React from "react";
 import { Categories, PostCard, SocialMediaWidget, PostsCarousel } from "../../components";
 import { getPostsFromTag, getTags , getRecentPosts} from "../../services";
-import { FloatingBar } from "../../lib";
+import { FloatingBar , ScrollUp } from "../../lib";
 import Head from "next/head";
 
 const Search = ({tags, selectedtag, tagposts,recentposts}) => {
@@ -30,6 +30,10 @@ const Search = ({tags, selectedtag, tagposts,recentposts}) => {
           </div>
         </div>
       </div>
+
+      <div className="hidden lg:block">
+        <ScrollUp/>
+      </div>
     </>
   );
 };
@@ -37,11 +41,11 @@ const Search = ({tags, selectedtag, tagposts,recentposts}) => {
 export default Search;
   
 export async function getStaticProps({ params }) {
-  const postsdata = (await getPostsFromTag(params.slug)) || [];
-  const tagsdata = (await getTags()) || [];
+  const tagposts = (await getPostsFromTag(params.slug)) || [];
+  const tags = (await getTags()) || [];
   const recentposts = (await getRecentPosts()) || [];
   return {
-    props: { tagposts: postsdata, selectedtag : {'slug': params.slug,'title':params.slug}, tags: tagsdata ,recentposts: recentposts},
+    props: { tagposts: tagposts, selectedtag : {'slug': params.slug,'title':params.slug}, tags: tags ,recentposts: recentposts},
   };
 }
 

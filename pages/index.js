@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { PostCard, SocialMediaWidget, Categories , PostsCarousel } from "../components";
-import { FloatingBar  } from "../lib";
+import { FloatingBar, ScrollUp  } from "../lib";
 import { getPosts, getTags,getRecentPosts } from "../services";
 import React from "react";
 
@@ -31,6 +31,9 @@ export default function Home({ posts ,tags , recentposts}) {
             <FloatingBar />
           </div>
         </div>
+      </div>
+      <div className="hidden lg:block">
+        <ScrollUp/>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from 'react'
 import {Header,Footer} from '.';
+import {ScrollUp} from '../lib'
 
 function Layout({children}) {
   return (
