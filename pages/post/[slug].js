@@ -11,11 +11,20 @@ import { FloatingBar } from "../../lib";
 import Head from "next/head";
 
 const Article = ({post, similarposts,comments}) => {
+  if (post.description == null ){
+    var short_desc = "";
+  }
+  else{
+    var short_desc = post.description.slice(0,157);
+  }
+  console.log(post.description);
+  console.log(short_desc);
+  
   return (
     <>
     <Head>
         <title>{post.title}</title>
-      <meta name="description" content='Aqui vai '/>
+        <meta name="description" content={`${short_desc}...`}/>
     </Head>
     <div className="container mx-auto px-10 mb-8">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">

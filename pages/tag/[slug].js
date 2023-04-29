@@ -5,11 +5,13 @@ import { FloatingBar , ScrollUp } from "../../lib";
 import Head from "next/head";
 
 const Search = ({tags, selectedtag, tagposts,recentposts}) => {
+
+  const text = selectedtag.title;
   return (
     <>
     <Head>
-      <title>{selectedtag.title}</title>
-      <meta name="description" content='Aqui estão os artigos publicados sobre {tag} até agora.'/>
+      <title>{text}</title>
+      <meta name="description" content={`Descubra os artigos mais populares sobre ${text} no Coding Elf até agora. Fique por dentro das últimas tendências em ${text}.`}/>
     </Head>
       <div className="container mx-auto px-10 mb-8">
         <PostsCarousel posts={recentposts}/>
@@ -44,8 +46,14 @@ export async function getStaticProps({ params }) {
   const tagposts = (await getPostsFromTag(params.slug)) || [];
   const tags = (await getTags()) || [];
   const recentposts = (await getRecentPosts()) || [];
+  var tagtitle = params.slug;
+  for(var x in tags) {
+    if(tags[x].slug == params.slug) {
+      tagtitle = tags[x].title;
+    }
+  }
   return {
-    props: { tagposts: tagposts, selectedtag : {'slug': params.slug,'title':params.slug}, tags: tags ,recentposts: recentposts},
+    props: { tagposts: tagposts, selectedtag : {'slug': params.slug,'title':tagtitle}, tags: tags ,recentposts: recentposts},
   };
 }
 
