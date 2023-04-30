@@ -1,11 +1,11 @@
 import React from 'react'
 import {Header,Footer} from '.';
-import {ScrollUp} from '../lib'
 
-function Layout({children}) {
+function Layout({children , handleSearch}) {
+
   return (
     <>
-        <Header />
+        <Header handleSearch={handleSearch} />
         {children}
         <Footer/>
     </>

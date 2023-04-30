@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import elfoPic from "../public/elf_bgwhite.svg";
@@ -9,7 +9,8 @@ const categories = [
   { name: "Home", slug: "" },
 ];
 
-const Header = () => {
+const Header = ({ handleSearch }) => { // Receive onSearch and searchResults as props
+
   return (
     <div className="container mx-auto px-10 mb-8 bg-[#cde1a8]">
       <div className="flex justify-around  w-full inline-block border-blue-400 py-8">
@@ -30,7 +31,7 @@ const Header = () => {
           </a>
         </div>
         <div className="hidden md:float-left md:contents">
-          <SearchBar inpt={'px-4'}/>            
+          <SearchBar inpt={'px-4'} handleSearch={handleSearch} />            
           {categories.map((category) => (
             <Link key={category.slug} href={`/${category.slug}`}>
               <span className="md:float-right hover:text-black whitespace-nowrap p-2 mx-1 flex items-center align-middle font-semibold text-gray-800 cursor-pointer">
@@ -41,7 +42,7 @@ const Header = () => {
         </div>
       </div>
       <div className="md:hidden">
-        <SearchBar inpt={'mb-6'}/>
+        <SearchBar inpt={'mb-6'}  handleSearch={handleSearch}/>
         <div className="flex justify-around md:float-left">
           {categories.map((category) => (
             <Link key={category.slug} href={`/${category.slug}`}>
