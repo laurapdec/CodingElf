@@ -1,4 +1,4 @@
-import { regenerate } from 'next/dist/build/webpack/plugins/next-client-pages-plugin/lib';
+import { regenerate } from 'next/dist/build/webpack/plugins/next-drop-client-page-plugin/lib'
 
 export default async function handler(req, res) {
   // Handle the webhook payload from Sanity
