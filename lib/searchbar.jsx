@@ -1,84 +1,31 @@
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 
-const SearchBar = ({ inpt }) => {
+const SearchBar = ({ inpt , handleSearch}) => {
   const classs = inpt + " grow flex items-center";
 
+  const [query, setQuery] = useState("");
+  const router = useRouter();
+
+  useEffect(() => {
+    if (router.query.q) {
+      const searchQuery = router.query.q;
+      handleSearch(searchQuery);
+    }
+  }, [router.query.q]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // prevent default form submission behavior
+    router.push(`/search?q=${query}`);
+    handleSearch(query); // call handleSearch with the current value of query
+  };
+
+
   return (
-    <form className={classs}>
+    <form className={classs} onSubmit={handleSubmit}>
       <label htmlFor="simple-search" className="sr-only">
         Search
       </label>
-      {/* <button
-        id="dropdown-button"
-        dataDropdownToggle="dropdown"
-        className="md:hidden  bg-[#fffae2] flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center border border-gray-300 text-gray-900 rounded-l-lg focus:outline-none focus:ring-gray-400 focus:ring-2  "
-        type="button"
-      >
-        Tags
-        <svg
-          className="ml-1 w-4 h-4"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-            clip-rule="evenodd"
-          ></path>
-        </svg>
-      </button>
-      <div
-        id="dropdown"
-        className="hidden z-10 w-44 bg-[#fffae2] rounded divide-y divide-gray-100 shadow dark:bg-gray-700"
-        dataPopperReferenceHidden=""
-        dataPopperEscaped=""
-        dataPopperPlacement="top"
-        style={{
-          position: "absolute",
-          inset: "auto auto 0px 0px",
-          margin: "0px",
-          transform: "translate3d(897px, 5637px, 0px)",
-        }}
-      >
-        <ul
-          className="py-1 text-sm text-gray-700 dark:text-gray-200"
-          ariaLabelledby="dropdown-button"
-        >
-          <li>
-            <button
-              type="button"
-              className="inline-flex py-2 px-4 w-full hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-            >
-              Mockups
-            </button>
-          </li>
-          <li>
-            <button
-              type="button"
-              className="inline-flex py-2 px-4 w-full hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-            >
-              Templates
-            </button>
-          </li>
-          <li>
-            <button
-              type="button"
-              className="inline-flex py-2 px-4 w-full hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-            >
-              Design
-            </button>
-          </li>
-          <li>
-            <button
-              type="button"
-              className="inline-flex py-2 px-4 w-full hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-            >
-              Logos
-            </button>
-          </li>
-        </ul>
-      </div> */}
       <div className="relative w-full">
         <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
           <svg
@@ -99,6 +46,8 @@ const SearchBar = ({ inpt }) => {
           id="simple-search"
           className="bg-[#fffae2] border border-gray-300 text-gray-900 text-sm rounded-lg  focus:outline-none focus:ring-gray-400 focus:ring-2 block w-full pl-10 p-2.5"
           placeholder="Search"
+          value={query}
+          onChange={(e)=>setQuery(e.target.value)}
           required
         />
       </div>

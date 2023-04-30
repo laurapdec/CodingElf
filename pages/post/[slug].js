@@ -17,8 +17,6 @@ const Article = ({post, similarposts,comments}) => {
   else{
     var short_desc = post.description.slice(0,157);
   }
-  console.log(post.description);
-  console.log(short_desc);
   
   return (
     <>

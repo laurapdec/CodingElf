@@ -23,6 +23,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.1.0",
     "react-multi-carousel": "^2.8.2",
+    "sanity-plugin-vercel-deploy": "^3.3.3",
     "vfile-reporter": "^7.0.4"
   },
   "devDependencies": {

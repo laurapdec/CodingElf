@@ -205,3 +205,27 @@ export async function getComments(id) {
   const result = (await client.fetch(query))||[];
   return result;
 }
+
+export async function searchPosts(string) {
+  const query =     `*[_type == "post" && (title match "${string}" || description match "${string}" || body[].children[].text match "${string}") ]{
+      _id,
+      "data":{
+        title,
+        "author":{
+           "name":author->name,
+          "image":author->image.asset->url,
+        },
+        "image":mainImage.asset->url,
+        body,
+        likes,
+        categories[]->{
+        title,
+        "slug":slug.current
+        },
+        "slug":slug.current
+      }
+    }   `;
+    const result = await client.fetch(query);
+  
+    return result;
+  }
