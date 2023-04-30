@@ -3,6 +3,7 @@ import Image from "next/image";
 import {PortableText} from '@portabletext/react';
 import { ptComponents } from '../lib';
 
+
 function ElfCard({author}) {
   return (
     <div className="bg-[#fffae2] shadow-lg rounded-lg p-8 pb-12 mb-8 w-full mx-auto  md:w-5/6  lg:w-full lg:mx-0 lg:p-8">
@@ -19,7 +20,7 @@ function ElfCard({author}) {
         <div className='text-center text-lg mb-5'>
             Hi, I&apos;m <strong>{author.name}</strong>
         </div>    
-        <div className='px-2 mb-4 md:px-8  '>
+        <div className='text-justify px-2 mb-4 md:px-8  '>
             <PortableText
                 value={author.bio}
                 components={ptComponents}

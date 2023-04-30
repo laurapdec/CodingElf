@@ -5,6 +5,7 @@ import {  getAuthors, getCompanyBio } from "../services";
 import Link from 'next/link';
 
 function about_us({authors,companybio}) {
+  console.log(authors);
   return (
     <>
     <div className="container mx-auto px-10 mb-8">
