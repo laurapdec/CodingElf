@@ -45,7 +45,6 @@ export async function getStaticProps({ }) {
   const recentposts = (await getRecentPosts()) || [];
 
   return {
-    props: {  tags , recentposts},
-    revalidate: 60, // Regenerate the page with ISR enabled every 60 seconds
+    props: {  tags , recentposts}
   };
 }
