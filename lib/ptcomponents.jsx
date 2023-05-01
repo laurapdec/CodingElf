@@ -26,7 +26,6 @@ const blockcomponent = {
 const ptComponents = {
   types: {
     customCode: (node) => {
-      console.log(node.value.code.language);
       if (!node) return null;
       
       return (

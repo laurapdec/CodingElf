@@ -4,7 +4,7 @@ const sanityAPI = process.env.SANITY_API_LINK;
 const sanityKey = process.env.GRAPHCMS_TOKEN;
 
 export async function getAuthors() {
-  const query = `*[_type=="author"]{
+  const query = `*[_type=="author" && !(_id in path("drafts.**"))]{
       "data":{
         name,
         bio,
@@ -18,7 +18,7 @@ export async function getAuthors() {
 }
 
 export async function getCompanyBio() {
-  const query = `*[_type=="company"]{
+  const query = `*[_type=="company" && !(_id in path("drafts.**"))]{
       body
     } `;
   const result = await client.fetch(query);
@@ -27,7 +27,7 @@ export async function getCompanyBio() {
 }
 
 export async function getPosts() {
-  const query = `*[_type=="post"]{
+  const query = `*[_type=="post" && !(_id in path("drafts.**")) ]{
     _id,
     "data":{
       title,
@@ -51,7 +51,7 @@ export async function getPosts() {
 }
 
 export async function getTags() {
-  const query = `*[_type=="category"]{
+  const query = `*[_type=="category" && !(_id in path("drafts.**"))]{
     _id,
     title,
     "slug":slug.current
@@ -62,7 +62,7 @@ export async function getTags() {
 }
 
 export async function getRecentPosts() {
-  const query = `*[_type=="post"]{
+  const query = `*[_type=="post" && !(_id in path("drafts.**"))]{
     _id,
     "data":{
       title,
@@ -86,7 +86,7 @@ export async function getRecentPosts() {
 }
 
 export async function getPostsFromTag(tagslug) {
-  const query = `*[_type=="post" && "${tagslug}" in categories[]->slug.current]{
+  const query = `*[_type=="post" && "${tagslug}" in categories[]->slug.current && !(_id in path("drafts.**"))]{
     _id,
     "data":{
       title,
@@ -110,7 +110,7 @@ export async function getPostsFromTag(tagslug) {
 }
 
 export async function getSimilarPosts(tagslug, postslug) {
-  const query = `*[_type=="post" && "${tagslug}" in categories[]->slug.current && !(slug.current=="${postslug}") ]{
+  const query = `*[_type=="post" && "${tagslug}" in categories[]->slug.current && !(slug.current=="${postslug}") && !(_id in path("drafts.**")) ]{
     _id,
     "data":{
       title,
@@ -134,7 +134,7 @@ export async function getSimilarPosts(tagslug, postslug) {
 }
 
 export async function getPostData(slug) {
-  const query = `*[_type=="post" && slug.current=="${slug}"]{
+  const query = `*[_type=="post" && slug.current=="${slug}" && !(_id in path("drafts.**"))]{
     _id,
     "data":{
       title,
@@ -193,7 +193,7 @@ export async function addComment(data) {
 }
 
 export async function getComments(id) {
-  const query = `*[_type=="comment" && post._ref== "${id}"]{
+  const query = `*[_type=="comment" && post._ref== "${id}" ]{
     _id,
     "data":{
       _createdAt,
@@ -207,7 +207,7 @@ export async function getComments(id) {
 }
 
 export async function searchPosts(string) {
-  const query =     `*[_type == "post" && (title match "${string}" || description match "${string}" || body[].children[].text match "${string}") ]{
+  const query =     `*[_type == "post" && (title match "${string}" || description match "${string}" || body[].children[].text match "${string}")&& !(_id in path("drafts.**")) ]{
       _id,
       "data":{
         title,
