@@ -30,7 +30,7 @@ const ptComponents = {
       if (!node) return null;
       
       return (
-        <div className=' relative flex flex-wrap mt-4 mb-10'>
+        <div className=' relative flex flex-wrap mt-1 mb-10'>
           <SyntaxHighlighter language={node.value.code.language} style={coldarkDark} showLineNumbers='true' className='h-full w-full z-10 rounded-lg'>
             {node.value.code.code}
           </SyntaxHighlighter>
