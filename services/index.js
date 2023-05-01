@@ -36,7 +36,7 @@ export async function getPosts() {
         "image":author->image.asset->url,
       },
       "image":mainImage.asset->url,
-      body,
+      description,
       likes,
       categories[]->{
       title,
