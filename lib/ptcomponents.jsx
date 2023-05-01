@@ -34,7 +34,7 @@ const ptComponents = {
           <SyntaxHighlighter language={node.value.code.language} style={coldarkDark} showLineNumbers='true' className='h-full w-full z-10 rounded-lg'>
             {node.value.code.code}
           </SyntaxHighlighter>
-          <button className='absolute p-2 rounded-lg right-0 mr-4 mt-6 z-20 bg-gray-600 text-white ' onClick={() => copy(node.value.code.code)}>
+          <button className='absolute p-2 rounded-lg right-0 mr-4 mt-6 z-20 bg-gray-600 text-white hover:bg-gray-700 ' onClick={() => copy(node.value.code.code)}>
             <MdContentCopy/>
           </button>
         </div>
