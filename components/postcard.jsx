@@ -64,10 +64,7 @@ const PostCard = ({ post , tagon="" }) => {
       </div>
       
       <div className="text-gray-800 text-justify" >
-        <PortableText
-          value={post.body}
-          components={ptComponents}
-        />
+        {post.description}
       </div>
     </div>
   );
