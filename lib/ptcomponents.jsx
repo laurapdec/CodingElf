@@ -1,6 +1,7 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { coldarkDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import copy from 'copy-to-clipboard';
+import { MdContentCopy } from 'react-icons/md';
 
 
 const blockcomponent = {
@@ -29,14 +30,14 @@ const ptComponents = {
       if (!node) return null;
       
       return (
-        <>
-          <SyntaxHighlighter language={node.value.code.language} style={coldarkDark} showLineNumbers='true' className='rounded-lg'>
+        <div className=' relative flex flex-wrap'>
+          <SyntaxHighlighter language={node.value.code.language} style={coldarkDark} showLineNumbers='true' className='h-full w-full z-10  rounded-lg'>
             {node.value.code.code}
           </SyntaxHighlighter>
-          <button onClick={() => copy(node.value.code.code)}>
-            Copy
+          <button className='absolute p-2 rounded-lg right-0 mr-4 mt-6 z-20 bg-gray-600 text-white ' onClick={() => copy(node.value.code.code)}>
+            <MdContentCopy/>
           </button>
-        </>
+        </div>
     )}
   },
 
