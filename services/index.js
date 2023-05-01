@@ -1,3 +1,4 @@
+import { func } from "prop-types";
 import client from "../client";
 
 const sanityAPI = process.env.SANITY_API_LINK;
@@ -229,3 +230,14 @@ export async function searchPosts(string) {
   
     return result;
   }
+
+export async function getImageData(ref){
+  const query = `*[references('${ref}')]{
+    body[_type == "image" && references('${ref}')]{
+      "url":asset -> url,
+    }
+  }`;
+  const result = (await client.fetch(query))||[];
+
+  return result;
+}

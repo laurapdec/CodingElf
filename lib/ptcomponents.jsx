@@ -2,6 +2,9 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { coldarkDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import copy from 'copy-to-clipboard';
 import { MdContentCopy } from 'react-icons/md';
+import Image from 'next/image';
+import { getImageData } from '../services';
+import { useState } from 'react';
 
 
 const blockcomponent = {
@@ -22,6 +25,22 @@ const blockcomponent = {
 }
 
 
+const SanityImage = ({ asset }) => {
+  const [imageUrl, setImageUrl] = useState();
+
+  if (!asset || !asset._ref) return null;
+  getImageData(asset._ref).then((url) => {
+    setImageUrl(url[0]['body'][0]['url']);
+  });
+
+  return (<Image 
+    src={imageUrl}
+    width={20}
+    height={20}
+    sizes='(max-width: 800px) 100vw, 800px'
+  />);
+}
+
 
 const ptComponents = {
   types: {
@@ -37,7 +56,12 @@ const ptComponents = {
             <MdContentCopy/>
           </button>
         </div>
-    )}
+    )},
+    image: ({value}) => {
+      return (
+        <SanityImage {...value} />
+      );
+    },
   },
 
     
