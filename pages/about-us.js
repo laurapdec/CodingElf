@@ -7,7 +7,7 @@ import Link from 'next/link';
 function about_us({authors,companybio}) {
   return (
     <>
-    <div className="container mx-auto px-10 mb-8">
+    <div className="container mx-auto md:px-10 mb-8">
       <Head>
         <title>Os elfos</title>
         <meta name="description" content='Conheça a equipe por trás do Coding Elf, blog brasileiro de programação, data science e diversos outros temas, com o intuito de democratizar a tecnologia'/>
