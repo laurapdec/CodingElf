@@ -23,7 +23,7 @@ const PostSquare = ({ post }) => {
         <p className="text-white mb-4 text-shadow font-semibold text-xs">
           {moment(post.createdAt).format("MMM DD, YYYY")}
         </p>
-        <p className="text-white mb-4 text-shadow font-semibold text-2xl text-center">
+        <p className="text-white mb-4 px-3 text-shadow font-semibold text-2xl text-center">
           {post.title}
         </p>
         <div className="flex items-center absolute bottom-5 w-full justify-center">
