@@ -43,7 +43,7 @@ const SearchBar = ({ inpt , handleSearch}) => {
         </div>
         <input
           type="text"
-          id="simple-search"
+          id="searchbar"
           className="bg-[#fffae2] border border-gray-300 text-gray-900 text-sm rounded-lg  focus:outline-none focus:ring-gray-400 focus:ring-2 block w-full pl-10 p-2.5"
           placeholder="Search"
           value={query}
@@ -53,6 +53,7 @@ const SearchBar = ({ inpt , handleSearch}) => {
       </div>
       <button
         type="submit"
+        aria-label="Submit search"
         className="p-2.5 ml-2 text-sm font-medium text-white bg-gray-900 rounded-lg hover:bg-black-800 focus:ring-gray-400 focus:ring-2"
       >
         <svg

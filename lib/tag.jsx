@@ -4,7 +4,7 @@ import Link from "next/link";
 const Tag = ({ tag , selected=false}) => {
   const slug = tag.slug;
   const text = tag.title;
-  var color = "[#5b858f]"
+  var color = "[#557C86]"
   var linkhref= `/tag/${slug}`
   var aditionalstyle = "";
   if(selected === true){

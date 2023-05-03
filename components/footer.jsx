@@ -5,7 +5,7 @@ import elfoPic from "../public/elf_bgwhite.svg";
 
 const Footer = () => {
   return (
-    <footer className="p-4 bg-[#5b858f] sm:p-6 ">
+    <footer className="p-4 bg-[#557C86] sm:p-6 ">
       <div className="md:flex md:justify-between">
         <div className="mb-6 md:mb-0 flex content-center">
           <a href="https://codingelf.com/" className=" flex items-center">
