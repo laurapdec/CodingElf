@@ -12,6 +12,7 @@ const Post = ({post}) => {
         <Image
           src={post.image}
           alt={post.title}
+          priority={true}
           layout="fill"
           className="object-top absolute h-80 w-full object-cover shadow-lg ronded-t-lg lg:rounded-lg"
         />
@@ -24,7 +25,7 @@ const Post = ({post}) => {
         <div className="font-medium text-gray-600">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 inline mr-2 text-[#5b858f]"
+            className="h-6 w-6 inline mr-2 text-[#557C86]"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

@@ -6,7 +6,7 @@ function ScrollUp({size=40,styleoptions="fixed rounded-full bottom-0 right-0 mx-
     }
 
   return (
-    <button onClick={handleClick}>
+    <button onClick={handleClick} aria-label="Scroll Up">
       <span className="cursor-pointer">
         <svg 
             xmlns="http://www.w3.org/2000/svg" 

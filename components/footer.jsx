@@ -5,7 +5,7 @@ import elfoPic from "../public/elf_bgwhite.svg";
 
 const Footer = () => {
   return (
-    <footer className="p-4 bg-[#5b858f] sm:p-6 ">
+    <footer className="p-4 bg-[#557C86] sm:p-6 ">
       <div className="md:flex md:justify-between">
         <div className="mb-6 md:mb-0 flex content-center">
           <a href="https://codingelf.com/" className=" flex items-center">
@@ -25,10 +25,14 @@ const Footer = () => {
         </div>
         <div className="grid grid-cols-2 gap-8 ">
           <div>
-            <a href="/sitemap.xml/" className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+            
+            <a href="/sitemap.xml/">
+              <h2  className="mb-6 text-sm font-semibold text-gray-50 uppercase dark:text-white">
               Site Map
+              </h2>
             </a>
-            <ul className="text-gray-600 dark:text-gray-400">
+             
+            <ul className="text-gray-50 dark:text-gray-50">
               <li className="mb-4">
                 <a href="https://codingelf.com/" className="hover:underline">
                   Home
@@ -43,10 +47,10 @@ const Footer = () => {
           </div>
 
           <div>
-            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+            <h2 className="mb-6 text-sm font-semibold text-gray-50 uppercase dark:text-white">
               Legal
             </h2>
-            <ul className="text-gray-600 dark:text-gray-400">
+            <ul className="text-gray-50 dark:text-gray-50">
               <li className="mb-4">
                 <a href="#" className="hover:underline">
                   Política de Privacidade

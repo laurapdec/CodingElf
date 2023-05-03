@@ -79,7 +79,7 @@ const ptComponents = {
     link: ({children, value}) => {
       const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined
       return (
-        <a href={value.href} rel={rel} className="text-[#5b858f] hover:text-gray-300 font-bold"> 
+        <a href={value.href} rel={rel} className="text-[#557C86] hover:text-gray-300 font-bold"> 
           {children}
         </a>
       )
