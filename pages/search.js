@@ -7,7 +7,7 @@ import React, { useState } from "react";
 export default function SearchPage({ tags , recentposts, searchResults} ) {
 
   return (
-    <div className="container mx-auto px-10 mb-8">
+    <div className="container mx-auto md:px-10 mb-8">
       <Head>
         <title>Coding Elf</title>
         <meta name="description" content="Aprenda sobre programação, data science, machine learning e desenvolvimento web com a gente no Coding Elf. Estamos criando uma comunidade, venha fazer parte."/>

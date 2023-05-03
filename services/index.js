@@ -217,7 +217,7 @@ export async function searchPosts(string) {
           "image":author->image.asset->url,
         },
         "image":mainImage.asset->url,
-        body,
+        description,
         likes,
         categories[]->{
         title,

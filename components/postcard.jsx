@@ -20,7 +20,7 @@ const PostCard = ({ post , tagon="" }) => {
         <Link href={`/post/${post.slug}`}>{post.title}</Link>
       </h1>
       <div className="block lg:flex md:flex text-center items-center justify-center mb-8 w-full">
-        <div className="flex items-center justify-center lg:w-auto mr-8">
+        <div className="flex items-center justify-center lg:w-auto md:mr-8 mb-2 md:mb-0">
           <Image
             alt={post.author.name}
             height="30px"
@@ -32,7 +32,7 @@ const PostCard = ({ post , tagon="" }) => {
             {post.author.name}
           </p>
         </div>
-        <div className="font-medium text-gray-600">
+        <div className="font-medium text-gray-600  mb-2 md:mb-0">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6 inline mr-2 text-[#5b858f]"

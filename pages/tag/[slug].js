@@ -13,7 +13,7 @@ const Search = ({tags, selectedtag, tagposts,recentposts}) => {
       <title>{text}</title>
       <meta name="description" content={`Descubra os artigos mais populares sobre ${text} no Coding Elf até agora. Fique por dentro das últimas tendências em ${text}.`}/>
     </Head>
-      <div className="container mx-auto px-10 mb-8">
+      <div className="container mx-auto md:px-10 mb-8">
         <PostsCarousel posts={recentposts}/>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="col-span-1 lg:col-span-8">
