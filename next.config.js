@@ -8,6 +8,11 @@ module.exports = {
       // Looks like backward compatibility approach.
   },
 
+  i18n: {
+    locales: ['pt-BR'],
+    defaultLocale: 'pt-BR',
+  },
+
   images: {
     domains: ['assets.vercel.com','media.graphassets.com','cdn.sanity.io'],
   },
