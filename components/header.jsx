@@ -15,7 +15,7 @@ const Header = ({ handleSearch }) => { // Receive onSearch and searchResults as 
     <div className="container mx-auto px-10 mb-8 bg-[#cde1a8]">
       <div className="flex justify-around  w-full inline-block border-blue-400 py-8">
         <div className="md:float-left flex items-center px-2 mx-1">
-          <a href="https://codingelf.com/" className=" flex items-center">
+          <a href="/" className=" flex items-center">
             <div className="mx-4">
               <Image 
                 src={elfoPic}
