@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="p-4 bg-[#557C86] sm:p-6 ">
       <div className="md:flex md:justify-between">
         <div className="mb-6 md:mb-0 flex content-center">
-          <a href="https://codingelf.com/" className=" flex items-center">
+          <a href="/" className=" flex items-center">
             <div className="mx-4">
               <Image
                 src={elfoPic}
@@ -34,12 +34,12 @@ const Footer = () => {
              
             <ul className="text-gray-50 dark:text-gray-50">
               <li className="mb-4">
-                <a href="https://codingelf.com/" className="hover:underline">
+                <a href="/" className="hover:underline">
                   Home
                 </a>
               </li>
               <li>
-                <a href="https://codingelf.com/about-us" className="hover:underline">
+                <a href="/about-us" className="hover:underline">
                   Sobre nós
                 </a>
               </li>
@@ -69,7 +69,7 @@ const Footer = () => {
       <div className="sm:flex sm:items-center sm:justify-between">
         <span className="text-sm text-gray-500 flex justify-center sm:text-center dark:text-gray-400">
           © 2022&nbsp;
-          <a href="https://codingelf.com/" className="hover:underline">
+          <a href="/" className="hover:underline">
           Coding Elf™
           </a>
           . All Rights Reserved.
